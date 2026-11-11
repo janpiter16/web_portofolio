@@ -1,6 +1,6 @@
-# Personal Portfolio Website
+# web_portofolio — Personal Portfolio Website
 
-Website portofolio profesional bilingual (Bahasa Indonesia dan English) untuk menampilkan profil, keahlian, pengalaman, pendidikan, dan proyek Web Development.
+Website portofolio profesional bilingual (Bahasa Indonesia dan English) untuk menampilkan profil, keahlian, pengalaman, pendidikan, dan proyek Web Development Janpiter Pandapotan Purba.
 
 ## Project goals
 - Memperkuat personal branding untuk melamar pekerjaan di bidang IT / Web Development.
@@ -9,14 +9,13 @@ Website portofolio profesional bilingual (Bahasa Indonesia dan English) untuk me
 - Mendukung bahasa Indonesia (`/id`) dan English (`/en`).
 
 ## Technology
-- Next.js App Router
+- Next.js App Router (Turbopack)
 - TypeScript
 - Tailwind CSS
+- Framer Motion
 - Lucide React
 - Git dan GitHub
 - Vercel untuk deployment
-
-> Versi dependency dan konfigurasi final harus mengikuti dokumentasi resmi serta hasil `create-next-app` yang digunakan saat inisialisasi.
 
 ## Quick start
 
