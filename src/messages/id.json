@@ -90,6 +90,7 @@
   },
   "footer": {
     "rights": "Hak cipta dilindungi.",
-    "builtWith": "Dibangun dengan Next.js, TypeScript, dan Tailwind CSS."
+    "builtWith": "Dibangun dengan Next.js, TypeScript, dan Tailwind CSS.",
+    "backToTop": "Kembali ke Atas"
   }
 }

@@ -90,6 +90,7 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "builtWith": "Built with Next.js, TypeScript, and Tailwind CSS."
+    "builtWith": "Built with Next.js, TypeScript, and Tailwind CSS.",
+    "backToTop": "Back to Top"
   }
 }
