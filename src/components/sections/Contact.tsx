@@ -42,35 +42,38 @@ export function Contact({ locale, messages }: ContactProps) {
             </ButtonLink>
           </div>
 
-          <div className="mt-10 border-t border-border-token pt-6">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
-              {messages.contact.profilesHeading}
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-4">
-              {isValidExternalUrl(profileData.githubUrl) && (
-                <a
-                  href={profileData.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-token bg-surface px-4 py-2 text-sm font-medium text-navy hover:border-primary hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                >
-                  <GithubIcon className="h-4 w-4" />
-                  <span>GitHub</span>
-                </a>
-              )}
-              {isValidExternalUrl(profileData.linkedinUrl) && (
-                <a
-                  href={profileData.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border-token bg-surface px-4 py-2 text-sm font-medium text-navy hover:border-primary hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                >
-                  <LinkedinIcon className="h-4 w-4" />
-                  <span>LinkedIn</span>
-                </a>
-              )}
+          {(isValidExternalUrl(profileData.githubUrl) ||
+            isValidExternalUrl(profileData.linkedinUrl)) && (
+            <div className="mt-10 border-t border-border-token pt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                {messages.contact.profilesHeading}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-4">
+                {isValidExternalUrl(profileData.githubUrl) && (
+                  <a
+                    href={profileData.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border-token bg-surface px-4 py-2 text-sm font-medium text-navy hover:border-primary hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                    <span>GitHub</span>
+                  </a>
+                )}
+                {isValidExternalUrl(profileData.linkedinUrl) && (
+                  <a
+                    href={profileData.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border-token bg-surface px-4 py-2 text-sm font-medium text-navy hover:border-primary hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    <LinkedinIcon className="h-4 w-4" />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Container>
     </section>

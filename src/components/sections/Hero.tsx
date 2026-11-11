@@ -114,11 +114,11 @@ export function Hero({ locale, messages }: HeroProps) {
                 </div>
                 <div>
                   <dt className="text-slate-400">focus</dt>
-                  <dd className="mt-0.5 text-sky">Next.js • TypeScript • Tailwind CSS</dd>
+                  <dd className="mt-0.5 text-sky">Laravel • Python Flask • React • SQL</dd>
                 </div>
                 <div>
-                  <dt className="text-slate-400">standards</dt>
-                  <dd className="mt-0.5 text-slate-200">WCAG 2.2 AA • Clean Architecture</dd>
+                  <dt className="text-slate-400">education</dt>
+                  <dd className="mt-0.5 text-slate-200">D4 Rekayasa Perangkat Lunak (IPK 3,90)</dd>
                 </div>
                 <div>
                   <dt className="text-slate-400">locales</dt>

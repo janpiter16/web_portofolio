@@ -13,84 +13,91 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    id: "frontend",
+    id: "backend-db",
     title: {
-      id: "Frontend & UI",
-      en: "Frontend & UI",
+      id: "Backend, API & Basis Data",
+      en: "Backend, API & Databases",
     },
     skills: [
       {
-        name: "TypeScript / JavaScript (ES6+)",
+        name: "PHP & Laravel",
         evidence: {
-          id: "Pengembangan komponen antarmuka bertipe kuat dan modular",
-          en: "Strongly-typed and modular user interface component development",
+          id: "Pengembangan backend aplikasi web, autentikasi, manajemen data, dan integrasi API",
+          en: "Web application backend development, data management, and API integration",
         },
       },
       {
-        name: "React & Next.js (App Router)",
+        name: "Python & Flask (RESTful API)",
         evidence: {
-          id: "Server Components, routing dinamis, dan optimasi SEO/performa",
-          en: "Server Components, dynamic routing, and SEO/performance optimization",
+          id: "Pembuatan layanan RESTful API dan integrasi model prediksi Machine Learning (Regresi Linear)",
+          en: "Building RESTful API services and integrating Linear Regression Machine Learning prediction models",
         },
       },
       {
-        name: "HTML5 & Semantic Accessibility (WCAG)",
+        name: "SQL (MySQL & PostgreSQL)",
         evidence: {
-          id: "Struktur landmark semantik, navigasi keyboard, dan kontras teruji",
-          en: "Semantic landmarks, keyboard navigation, and verified contrast",
-        },
-      },
-      {
-        name: "Tailwind CSS",
-        evidence: {
-          id: "Implementasi design token responsif mobile-first",
-          en: "Mobile-first responsive design token implementation",
+          id: "Perancangan dan pengelolaan basis data relasional untuk sistem pembayaran, data harga, dan prediksi",
+          en: "Relational database design and management for payment systems, pricing data, and prediction outputs",
         },
       },
     ],
   },
   {
-    id: "backend",
+    id: "frontend-mobile",
     title: {
-      id: "Backend & Data",
-      en: "Backend & Data",
+      id: "Web Frontend & Mobile",
+      en: "Web Frontend & Mobile",
     },
     skills: [
       {
-        name: "[TAMBAHKAN KEAHLIAN BACKEND — Misal: Node.js / REST API]",
+        name: "JavaScript & React",
         evidence: {
-          id: "[BUKTI PENGGUNAAN — Misal: Integrasi endpoint API dan validasi skema]",
-          en: "[EVIDENCE — e.g., API endpoint integration and schema validation]",
+          id: "Pengembangan antarmuka pengguna (frontend) aplikasi web interaktif saat magang di Bandung Techno Park",
+          en: "Interactive web user interface (frontend) development during internship at Bandung Techno Park",
         },
       },
       {
-        name: "[TAMBAHKAN DATABASE — Misal: PostgreSQL / Prisma]",
+        name: "HTML5, CSS3 & Bootstrap",
         evidence: {
-          id: "[BUKTI PENGGUNAAN — Misal: Perancangan skema relasional dan query teroptimasi]",
-          en: "[EVIDENCE — e.g., Relational schema design and optimized queries]",
+          id: "Implementasi layout web responsif untuk sistem informasi akademik dan pembayaran sekolah",
+          en: "Responsive web layout implementation for academic and school payment information systems",
+        },
+      },
+      {
+        name: "Flutter",
+        evidence: {
+          id: "Pengembangan aplikasi lintas platform (Web & Mobile) pada proyek Sistem Pembayaran SPP",
+          en: "Cross-platform application development (Web & Mobile) on the School Tuition Payment System project",
         },
       },
     ],
   },
   {
-    id: "tools",
+    id: "tools-workflow",
     title: {
-      id: "Alat Kerja & Alur Pengembangan",
-      en: "Tools & Engineering Workflow",
+      id: "Tools, Pemodelan Sistem & Soft Skills",
+      en: "Tools, System Modeling & Soft Skills",
     },
     skills: [
       {
-        name: "Git & GitHub Actions",
+        name: "Git & Docker",
         evidence: {
-          id: "Alur kerja branch/PR dan pipeline CI otomatis (lint, type-check, build)",
-          en: "Branch/PR workflow and automated CI pipelines (lint, type-check, build)",
+          id: "Kontrol versi kode sumber dan kontainerisasi lingkungan pengembangan bersama tim",
+          en: "Source code version control and development environment containerization in team workflows",
         },
       },
       {
-        name: "Vercel & Web Deployment",
+        name: "UML, Draw.io, Figma & Canva",
         evidence: {
-          id: "Deployment preview dan produksi dengan konfigurasi environment aman",
-          en: "Preview and production deployments with secure environment configuration",
+          id: "Penyusunan flowchart, use case diagram, sequence diagram, alur sistem, dan perancangan mockup UI",
+          en: "Creating flowcharts, use case diagrams, sequence diagrams, system flows, and UI mockups",
+        },
+      },
+      {
+        name: "Problem Solving & Kolaborasi Mitra",
+        evidence: {
+          id: "Penggalian kebutuhan bersama mitra, kerja sama tim, kemampuan analitis & numerik, serta manajemen waktu",
+          en: "Requirement gathering with stakeholders, teamwork, analytical & numerical skills, and time management",
         },
       },
     ],

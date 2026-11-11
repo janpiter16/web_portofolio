@@ -24,7 +24,7 @@ export function Education({ locale, messages }: EducationProps) {
         />
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className={certifications.length > 0 ? "lg:col-span-7" : "lg:col-span-12"}>
             <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-navy">
               <GraduationCap className="h-5 w-5 text-primary" aria-hidden="true" />
               <span>{messages.education.educationHeading}</span>
@@ -57,41 +57,43 @@ export function Education({ locale, messages }: EducationProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-navy">
-              <Award className="h-5 w-5 text-primary" aria-hidden="true" />
-              <span>{messages.education.certificationHeading}</span>
-            </h3>
+          {certifications.length > 0 && (
+            <div className="lg:col-span-5">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-navy">
+                <Award className="h-5 w-5 text-primary" aria-hidden="true" />
+                <span>{messages.education.certificationHeading}</span>
+              </h3>
 
-            <div className="space-y-4">
-              {certifications.map((cert) => (
-                <article
-                  key={cert.id}
-                  className="rounded-xl border border-border-token bg-surface-alt p-6"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <h4 className="text-base font-bold text-navy">{cert.name}</h4>
-                    <span className="font-mono text-xs text-muted">
-                      {cert.date}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
+              <div className="space-y-4">
+                {certifications.map((cert) => (
+                  <article
+                    key={cert.id}
+                    className="rounded-xl border border-border-token bg-surface-alt p-6"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="text-base font-bold text-navy">{cert.name}</h4>
+                      <span className="font-mono text-xs text-muted">
+                        {cert.date}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
 
-                  {isValidExternalUrl(cert.credentialUrl) && (
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-sm"
-                    >
-                      <span>{messages.education.viewCredential}</span>
-                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  )}
-                </article>
-              ))}
+                    {isValidExternalUrl(cert.credentialUrl) && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-sm"
+                      >
+                        <span>{messages.education.viewCredential}</span>
+                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Container>
     </section>

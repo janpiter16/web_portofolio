@@ -14,36 +14,36 @@ export interface ProfileData {
 }
 
 export const profileData: ProfileData = {
-  name: "[YOUR NAME]",
+  name: "Janpiter Pandapotan Purba",
   title: {
-    id: "[PERAN PROFESIONAL — Misal: Full-Stack Web Developer]",
-    en: "[PROFESSIONAL TITLE — e.g., Full-Stack Web Developer]",
+    id: "Software Developer | Backend & Fullstack",
+    en: "Software Developer | Backend & Fullstack",
   },
   location: {
-    id: "[KOTA, NEGARA — Misal: Jakarta, Indonesia]",
-    en: "[CITY, COUNTRY — e.g., Jakarta, Indonesia]",
+    id: "Serang, Banten, Indonesia",
+    en: "Serang, Banten, Indonesia",
   },
   availability: {
-    id: "Terbuka untuk peluang kerja & proyek Web Development",
-    en: "Available for Web Development roles & projects",
+    id: "Terbuka untuk peluang kerja Backend, Frontend & Fullstack Developer",
+    en: "Available for Backend, Frontend & Fullstack Developer roles",
   },
   summary: {
-    id: "[RINGKASAN PROFIL: Jelaskan dalam 1-2 kalimat fokus keahlian Anda dalam membangun aplikasi web yang cepat, mudah diakses, dan terstruktur dengan baik.]",
-    en: "[PROFILE SUMMARY: Describe in 1-2 sentences your core focus on building fast, accessible, and well-structured web applications.]",
+    id: "Lulusan D4 Teknik Informatika (Rekayasa Perangkat Lunak) Politeknik Negeri Indramayu dengan IPK 3,90. Berpengalaman membangun RESTful API, layanan backend, dan aplikasi web menggunakan JavaScript, React, PHP (Laravel), Python (Flask), serta database MySQL dan PostgreSQL.",
+    en: "Applied Bachelor (D4) graduate in Informatics Engineering (Software Engineering) from Politeknik Negeri Indramayu with a 3.90 GPA. Experienced in building RESTful APIs, backend services, and web applications using JavaScript, React, PHP (Laravel), Python (Flask), and SQL databases (MySQL & PostgreSQL).",
   },
   about: [
     {
-      id: "[PARAGRAF 1 BIOGRAFI: Jelaskan latar belakang profesional Anda di bidang IT / Web Development, fokus teknologi yang dikuasai, serta pendekatan Anda dalam menyelesaikan masalah teknis.]",
-      en: "[BIOGRAPHY PARAGRAPH 1: Describe your professional background in IT / Web Development, core technologies you work with, and your approach to solving technical problems.]",
+      id: "Saya adalah lulusan D4 (Sarjana Terapan) Teknik Informatika, Program Studi Rekayasa Perangkat Lunak di Politeknik Negeri Indramayu dengan IPK 3,90. Fokus utama saya adalah pengembangan backend, integrasi RESTful API, dan pengembangan aplikasi web fullstack menggunakan JavaScript, React, PHP (Laravel), serta Python (Flask) yang didukung oleh perancangan database relasional MySQL dan PostgreSQL.",
+      en: "I am an Applied Bachelor (D4) graduate in Informatics Engineering, Software Engineering study program at Politeknik Negeri Indramayu with a 3.90 GPA. My primary focus is backend development, RESTful API integration, and fullstack web development using JavaScript, React, PHP (Laravel), and Python (Flask), backed by relational database design in MySQL and PostgreSQL.",
     },
     {
-      id: "[PARAGRAF 2 BIOGRAFI: Jelaskan bagaimana Anda bekerja dalam tim, perhatian terhadap kualitas kode, aksesibilitas, performa, serta tujuan karier yang sedang Anda tuju.]",
-      en: "[BIOGRAPHY PARAGRAPH 2: Explain how you collaborate in teams, your attention to code quality, accessibility, performance, and the career goals you are pursuing.]",
+      id: "Saya memiliki pengalaman magang sebagai Frontend Developer di Bandung Techno Park serta pengalaman sebagai Fullstack Developer dalam mengintegrasikan aplikasi web Laravel dengan layanan prediksi Machine Learning berbasis Python Flask. Saya terbiasa berkolaborasi dalam tim maupun berdiskusi langsung dengan mitra pengguna, memiliki kemampuan pemecahan masalah yang terstruktur, dan antusias mempelajari teknologi modern termasuk layanan cloud seperti Google Cloud Platform.",
+      en: "I have hands-on internship experience as a Frontend Developer at Bandung Techno Park and Fullstack Developer experience integrating Laravel web applications with Python Flask machine learning prediction services. I am accustomed to collaborating in dynamic teams and engaging directly with project partners, backed by strong problem-solving skills and eagerness to learn cloud technologies such as Google Cloud Platform.",
     },
   ],
-  email: "your.email@example.com",
-  githubUrl: "https://github.com/yourusername",
-  linkedinUrl: "https://www.linkedin.com/in/yourusername",
+  email: "janpurba90@gmail.com",
+  githubUrl: "",
+  linkedinUrl: "",
   cvPath: {
     id: "/cv/resume-id.pdf",
     en: "/cv/resume-en.pdf",
