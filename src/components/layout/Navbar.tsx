@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Globe, Download, Code2 } from "lucide-react";
 import { Locale, Messages, getOppositeLocale } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
+import { replaySection } from "@/components/ui/SectionReveal";
 
 interface NavbarProps {
   locale: Locale;
@@ -102,7 +103,10 @@ export function Navbar({ locale, messages }: NavbarProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setActiveHash(item.id)}
+                onClick={() => {
+                  setActiveHash(item.id);
+                  replaySection(item.id);
+                }}
                 style={{ animationDelay: `${140 + idx * 65}ms` }}
                 className={`nav-item-cascade relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
@@ -178,6 +182,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
                   href={item.href}
                   onClick={() => {
                     setActiveHash(item.id);
+                    replaySection(item.id);
                     setMobileOpen(false);
                   }}
                   className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"

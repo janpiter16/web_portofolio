@@ -306,3 +306,25 @@ body {
 .nav-item-cascade {
   animation: navItemCascade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Section entrance when scrolled into view or opened from a navbar menu */
+@keyframes sectionEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(48px) scale(0.98);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.section-reveal {
+  opacity: 0;
+}
+
+.section-reveal.is-visible {
+  animation: sectionEnter 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
