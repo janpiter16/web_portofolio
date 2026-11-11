@@ -1,0 +1,35 @@
+import { notFound } from "next/navigation";
+import { isValidLocale, getMessages } from "@/lib/i18n";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
+import { Experience } from "@/components/sections/Experience";
+import { Education } from "@/components/sections/Education";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { Contact } from "@/components/sections/Contact";
+
+export default async function LocaleHomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+
+  const messages = getMessages(locale);
+
+  return (
+    <>
+      <Hero locale={locale} messages={messages} />
+      <About locale={locale} messages={messages} />
+      <Skills locale={locale} messages={messages} />
+      <Experience locale={locale} messages={messages} />
+      <Education locale={locale} messages={messages} />
+      <ProjectsSection locale={locale} messages={messages} />
+      <Contact locale={locale} messages={messages} />
+    </>
+  );
+}

@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  /* Layer 1: Primitive Tokens (from docs/DESIGN-SYSTEM.md) */
+  --token-navy: #0B1F3A;
+  --token-white: #FFFFFF;
+  --token-blue: #2563EB;
+  --token-blue-hover: #1D4ED8;
+  --token-sky: #38BDF8;
+  --token-light-gray: #F1F5F9;
+  --token-slate: #64748B;
+  --token-text: #0F172A;
+  --token-border: #E2E8F0;
+  --token-success: #15803D;
+  --token-error: #B91C1C;
+
+  /* Layer 2: Semantic Tokens */
+  --color-brand-primary: var(--token-navy);
+  --color-action-primary: var(--token-blue);
+  --color-action-hover: var(--token-blue-hover);
+  --color-accent: var(--token-sky);
+  --color-surface-main: var(--token-white);
+  --color-surface-muted: var(--token-light-gray);
+  --color-text-primary: var(--token-text);
+  --color-text-secondary: var(--token-slate);
+  --color-border-default: var(--token-border);
+  --color-status-success: var(--token-success);
+  --color-status-error: var(--token-error);
+
+  /* Layer 3: Component & Layout Tokens */
+  --header-height: 4.5rem;
+}
+
+@theme inline {
+  --color-navy: var(--color-brand-primary);
+  --color-primary: var(--color-action-primary);
+  --color-primary-hover: var(--color-action-hover);
+  --color-sky: var(--color-accent);
+  --color-surface: var(--color-surface-main);
+  --color-surface-alt: var(--color-surface-muted);
+  --color-foreground: var(--color-text-primary);
+  --color-muted: var(--color-text-secondary);
+  --color-border-token: var(--color-border-default);
+  --color-success: var(--color-status-success);
+  --color-error: var(--color-status-error);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-padding-top: var(--header-height);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background-color: var(--color-surface-main);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}

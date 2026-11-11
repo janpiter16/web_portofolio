@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Portofolio Profesional — IT & Web Developer",
+    "description": "Portofolio profesional dwibahasa yang menampilkan profil, keahlian teknis, pengalaman, pendidikan, dan studi kasus proyek Web Development."
+  },
+  "nav": {
+    "about": "Tentang",
+    "skills": "Keahlian",
+    "experience": "Pengalaman",
+    "education": "Pendidikan",
+    "projects": "Proyek",
+    "contact": "Kontak",
+    "allProjects": "Semua Proyek",
+    "downloadCv": "Unduh CV",
+    "openMenu": "Buka menu navigasi",
+    "closeMenu": "Tutup menu navigasi",
+    "switchLanguage": "Ganti bahasa ke English"
+  },
+  "anchors": {
+    "about": "tentang",
+    "skills": "keahlian",
+    "experience": "pengalaman",
+    "education": "pendidikan",
+    "projects": "proyek",
+    "contact": "kontak"
+  },
+  "hero": {
+    "eyebrow": "PORTOFOLIO WEB DEVELOPMENT",
+    "primaryCta": "Lihat Proyek",
+    "secondaryCta": "Unduh CV (ID)",
+    "locationLabel": "Lokasi"
+  },
+  "about": {
+    "eyebrow": "TENTANG SAYA",
+    "title": "Latar Belakang & Pendekatan Kerja",
+    "subtitle": "Fokus pada kejelasan kode, aksesibilitas antarmuka, dan hasil teknis yang dapat diverifikasi."
+  },
+  "skills": {
+    "eyebrow": "KEAHLIAN TEKNIS",
+    "title": "Kompetensi & Bukti Penerapan",
+    "subtitle": "Dikelompokkan berdasarkan area kerja tanpa klaim persentase yang dikarang."
+  },
+  "experience": {
+    "eyebrow": "RIWAYAT KARIER",
+    "title": "Pengalaman Kerja",
+    "subtitle": "Peran, tanggung jawab utama, dan hasil kontribusi yang dapat diverifikasi.",
+    "responsibilitiesLabel": "Tanggung Jawab Utama",
+    "achievementsLabel": "Hasil & Dampak Terverifikasi"
+  },
+  "education": {
+    "eyebrow": "AKADEMIK & KREDENSIAL",
+    "title": "Pendidikan & Sertifikasi",
+    "subtitle": "Latar belakang pendidikan formal dan sertifikasi relevan.",
+    "educationHeading": "Pendidikan Formal",
+    "certificationHeading": "Sertifikasi",
+    "viewCredential": "Lihat Kredensial"
+  },
+  "projects": {
+    "eyebrow": "BUKTI PEKERJAAN",
+    "title": "Proyek Pilihan",
+    "subtitle": "Studi kasus proyek nyata lengkap dengan konteks masalah, kontribusi, teknologi, dan hasilnya.",
+    "viewAll": "Lihat Semua Proyek",
+    "viewDetails": "Baca Studi Kasus",
+    "liveDemo": "Demo Langsung",
+    "sourceCode": "Kode Sumber",
+    "backToProjects": "Kembali ke Daftar Proyek",
+    "backToHome": "Kembali ke Beranda",
+    "pageTitle": "Katalog Proyek & Studi Kasus",
+    "pageSubtitle": "Daftar lengkap proyek pengembangan web beserta rincian arsitektur, peran, dan solusi teknis.",
+    "detailLabels": {
+      "role": "Peran Saya",
+      "technologies": "Teknologi",
+      "problem": "Masalah & Konteks",
+      "objective": "Tujuan Proyek",
+      "contribution": "Kontribusi Nyata",
+      "approach": "Pendekatan Pengembangan",
+      "features": "Fitur Utama",
+      "challenge": "Tantangan Teknis",
+      "solution": "Solusi Implementasi",
+      "outcome": "Hasil & Pelajaran"
+    }
+  },
+  "contact": {
+    "eyebrow": "HUBUNGI SAYA",
+    "title": "Mari Berdiskusi",
+    "subtitle": "Terbuka untuk peluang kerja penuh waktu, kolaborasi teknis, atau diskusi proyek Web Development.",
+    "emailCta": "Kirim Email",
+    "downloadCvCta": "Unduh CV (PDF)",
+    "profilesHeading": "Profil Profesional"
+  },
+  "footer": {
+    "rights": "Hak cipta dilindungi.",
+    "builtWith": "Dibangun dengan Next.js, TypeScript, dan Tailwind CSS."
+  }
+}

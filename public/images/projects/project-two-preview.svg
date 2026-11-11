@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#F1F5F9"/>
+  <rect x="48" y="48" width="704" height="404" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="80" y="88" width="220" height="32" rx="6" fill="#0B1F3A"/>
+  <rect x="80" y="144" width="300" height="180" rx="10" fill="#F1F5F9"/>
+  <rect x="404" y="144" width="316" height="84" rx="10" fill="#F1F5F9"/>
+  <rect x="404" y="240" width="316" height="84" rx="10" fill="#F1F5F9"/>
+  <rect x="80" y="352" width="140" height="36" rx="8" fill="#2563EB"/>
+  <text x="400" y="425" font-family="monospace" font-size="14" fill="#64748B" text-anchor="middle">[PLACEHOLDER: Replace with Project 2 Screenshot]</text>
+</svg>

@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "title": "Professional Portfolio — IT & Web Developer",
+    "description": "Bilingual professional portfolio showcasing profile, technical skills, work experience, education, and Web Development project case studies."
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects",
+    "contact": "Contact",
+    "allProjects": "All Projects",
+    "downloadCv": "Download CV",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "switchLanguage": "Switch language to Bahasa Indonesia"
+  },
+  "anchors": {
+    "about": "about",
+    "skills": "skills",
+    "experience": "experience",
+    "education": "education",
+    "projects": "projects",
+    "contact": "contact"
+  },
+  "hero": {
+    "eyebrow": "WEB DEVELOPMENT PORTFOLIO",
+    "primaryCta": "View Projects",
+    "secondaryCta": "Download CV (EN)",
+    "locationLabel": "Location"
+  },
+  "about": {
+    "eyebrow": "ABOUT ME",
+    "title": "Background & Engineering Approach",
+    "subtitle": "Focused on clean code, accessible interfaces, and verifiable technical outcomes."
+  },
+  "skills": {
+    "eyebrow": "TECHNICAL SKILLS",
+    "title": "Core Competencies & Evidence",
+    "subtitle": "Grouped logically by domain without fabricated proficiency percentages."
+  },
+  "experience": {
+    "eyebrow": "CAREER HISTORY",
+    "title": "Work Experience",
+    "subtitle": "Roles, core responsibilities, and verified contributions.",
+    "responsibilitiesLabel": "Key Responsibilities",
+    "achievementsLabel": "Verified Outcomes & Impact"
+  },
+  "education": {
+    "eyebrow": "ACADEMICS & CREDENTIALS",
+    "title": "Education & Certifications",
+    "subtitle": "Formal academic background and verified technical credentials.",
+    "educationHeading": "Formal Education",
+    "certificationHeading": "Certifications",
+    "viewCredential": "View Credential"
+  },
+  "projects": {
+    "eyebrow": "PROOF OF WORK",
+    "title": "Featured Projects",
+    "subtitle": "Real project case studies detailing problem context, personal contribution, stack, and outcomes.",
+    "viewAll": "View All Projects",
+    "viewDetails": "Read Case Study",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code",
+    "backToProjects": "Back to Projects",
+    "backToHome": "Back to Home",
+    "pageTitle": "Projects & Case Studies",
+    "pageSubtitle": "Complete index of web development projects with architecture details, roles, and technical solutions.",
+    "detailLabels": {
+      "role": "My Role",
+      "technologies": "Tech Stack",
+      "problem": "Problem & Context",
+      "objective": "Objective",
+      "contribution": "Actual Contribution",
+      "approach": "Development Approach",
+      "features": "Key Features",
+      "challenge": "Technical Challenge",
+      "solution": "Implemented Solution",
+      "outcome": "Outcomes & Lessons Learned"
+    }
+  },
+  "contact": {
+    "eyebrow": "GET IN TOUCH",
+    "title": "Let's Connect",
+    "subtitle": "Open for full-time engineering roles, technical collaboration, or Web Development inquiries.",
+    "emailCta": "Send Email",
+    "downloadCvCta": "Download CV (PDF)",
+    "profilesHeading": "Professional Profiles"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js, TypeScript, and Tailwind CSS."
+  }
+}
