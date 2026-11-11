@@ -12,6 +12,7 @@ export interface ProfileData {
   email: string;
   githubUrl: string;
   linkedinUrl: string;
+  instagramUrl: string;
   cvPath: Record<Locale, string>;
 }
 
@@ -59,8 +60,9 @@ export const profileData: ProfileData = {
     },
   ],
   email: "janpurba90@gmail.com",
-  githubUrl: "",
-  linkedinUrl: "",
+  githubUrl: "https://github.com/janpiter16",
+  linkedinUrl: "https://www.linkedin.com/jobs/view/4431493545/",
+  instagramUrl: "https://www.instagram.com/janpiterprb_16?exln=MWU2OHB5d3hodmh5MQ==",
   cvPath: {
     id: "/cv/resume-id.pdf",
     en: "/cv/resume-en.pdf",

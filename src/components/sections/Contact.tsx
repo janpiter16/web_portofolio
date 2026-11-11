@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { Download, Mail, Send, User, MessageSquare, MapPin, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/BrandIcons";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
 import { isValidExternalUrl } from "@/lib/utils";
@@ -191,7 +191,7 @@ export function Contact({ locale, messages }: ContactProps) {
                     href={profileData.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky"
+                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
                     <div className="flex items-center gap-3.5">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
@@ -199,7 +199,7 @@ export function Contact({ locale, messages }: ContactProps) {
                       </span>
                       <div>
                         <p className="text-sm font-bold text-foreground">GitHub</p>
-                        <p className="text-xs text-muted">Source Code & Repositories</p>
+                        <p className="font-mono text-xs text-muted">@janpiter16</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
@@ -211,7 +211,7 @@ export function Contact({ locale, messages }: ContactProps) {
                     href={profileData.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky"
+                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
                     <div className="flex items-center gap-3.5">
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
@@ -219,7 +219,27 @@ export function Contact({ locale, messages }: ContactProps) {
                       </span>
                       <div>
                         <p className="text-sm font-bold text-foreground">LinkedIn</p>
-                        <p className="text-xs text-muted">Professional Network</p>
+                        <p className="text-xs text-muted">Janpiter Pandapotan Purba</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                  </a>
+                )}
+
+                {isValidExternalUrl(profileData.instagramUrl) && (
+                  <a
+                    href={profileData.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
+                        <InstagramIcon className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-bold text-foreground">Instagram</p>
+                        <p className="font-mono text-xs text-muted">@janpiterprb_16</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
