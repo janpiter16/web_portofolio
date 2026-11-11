@@ -83,8 +83,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
         <Link
           href={`/${locale}`}
           onClick={() => setActiveHash("home")}
-          style={{ animationDelay: "80ms" }}
-          className="nav-item-cascade group relative z-10 flex items-center gap-2.5 pr-2 font-bold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky rounded-full"
+          className="group relative z-10 flex items-center gap-2.5 pr-2 font-bold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky rounded-full shrink-0"
         >
           <span className="relative flex h-8 w-8 items-center justify-center rounded-xl border border-primary/50 bg-primary/20 text-sky transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
             <Code2 className="h-4 w-4" aria-hidden="true" />
@@ -95,9 +94,9 @@ export function Navbar({ locale, messages }: NavbarProps) {
           </span>
         </Link>
 
-        {/* Desktop Pill Links with Staggered Entrance & Active Glow */}
-        <nav aria-label="Main Navigation" className="relative z-10 hidden md:flex md:items-center md:gap-1">
-          {navItems.map((item, idx) => {
+        {/* Desktop Pill Links with Active Glow */}
+        <nav aria-label="Main Navigation" className="relative z-10 hidden md:flex md:items-center md:gap-1 shrink-0">
+          {navItems.map((item) => {
             const isActive = activeHash === item.id;
             return (
               <Link
@@ -107,8 +106,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
                   setActiveHash(item.id);
                   replaySection(item.id);
                 }}
-                style={{ animationDelay: `${140 + idx * 65}ms` }}
-                className={`nav-item-cascade relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
                     ? "border border-sky/50 bg-primary/25 text-foreground shadow-sm"
                     : "text-muted hover:-translate-y-0.5 hover:bg-white/5 hover:text-foreground"
@@ -129,10 +127,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
         <div className="relative z-10 hidden h-5 w-px bg-border-token md:block" aria-hidden="true" />
 
         {/* Right Actions: Language Switcher & CV CTA */}
-        <div
-          style={{ animationDelay: "420ms" }}
-          className="nav-item-cascade relative z-10 flex items-center gap-2"
-        >
+        <div className="relative z-10 flex items-center gap-2 shrink-0">
           <Link
             href={switchedPath}
             aria-label={messages.nav.switchLanguage}
