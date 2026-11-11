@@ -10,8 +10,9 @@ interface ArchitectureDiagramProps {
   locale: Locale;
 }
 
-export function ArchitectureDiagram({ nodes, locale }: ArchitectureDiagramProps) {
+export function ArchitectureDiagram({ nodes = [], locale }: ArchitectureDiagramProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  if (!nodes || nodes.length === 0) return null;
   const activeNode = nodes[selectedIndex] ?? nodes[0];
 
   if (!activeNode) return null;
