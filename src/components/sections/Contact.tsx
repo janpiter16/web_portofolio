@@ -219,7 +219,7 @@ export function Contact({ locale, messages }: ContactProps) {
                       </span>
                       <div>
                         <p className="text-sm font-bold text-foreground">LinkedIn</p>
-                        <p className="text-xs text-muted">Janpiter Pandapotan Purba</p>
+                        <p className="font-mono text-xs text-muted">in/janpiter-purba-22075b444</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />

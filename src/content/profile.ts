@@ -61,7 +61,7 @@ export const profileData: ProfileData = {
   ],
   email: "janpurba90@gmail.com",
   githubUrl: "https://github.com/janpiter16",
-  linkedinUrl: "https://www.linkedin.com/jobs/view/4431493545/",
+  linkedinUrl: "https://www.linkedin.com/in/janpiter-purba-22075b444/",
   instagramUrl: "https://www.instagram.com/janpiterprb_16?exln=MWU2OHB5d3hodmh5MQ==",
   cvPath: {
     id: "/cv/resume-id.pdf",
