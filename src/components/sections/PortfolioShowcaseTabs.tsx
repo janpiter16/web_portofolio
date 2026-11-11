@@ -160,30 +160,49 @@ export function PortfolioShowcaseTabs({
                 key={category.id}
                 className="glass-card rounded-2xl p-6 transition-all duration-200"
               >
-                <h3 className="text-lg font-bold text-foreground">
-                  {t(category.title, locale)}
-                </h3>
+                <div className="flex items-center justify-between border-b border-border-token pb-4">
+                  <h3 className="text-lg font-bold text-foreground">
+                    {t(category.title, locale)}
+                  </h3>
+                  <span className="rounded-full border border-primary/40 bg-primary/15 px-2.5 py-0.5 font-mono text-xs font-bold text-sky">
+                    {category.skills.length}
+                  </span>
+                </div>
 
                 <ul className="mt-5 space-y-3.5">
-                  {category.skills.map((skill) => (
-                    <li
-                      key={skill.name}
-                      className="flex items-start gap-3 rounded-xl border border-border-token bg-white/5 p-3.5 transition-colors hover:border-sky"
-                    >
-                      <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-sky"
-                        aria-hidden="true"
-                      />
-                      <div>
-                        <p className="text-sm font-bold text-foreground">
-                          {skill.name}
-                        </p>
-                        <p className="mt-1 text-xs leading-relaxed text-muted">
-                          {t(skill.evidence, locale)}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const monogram = skill.name
+                      .replace(/[^A-Za-z0-9]/g, "")
+                      .slice(0, 2)
+                      .toUpperCase();
+                    return (
+                      <li
+                        key={skill.name}
+                        className="group flex items-start gap-3.5 rounded-xl border border-border-token bg-white/5 p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-sky hover:bg-primary/10"
+                      >
+                        <span
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-primary/40 bg-primary/15 font-mono text-xs font-extrabold text-sky transition-colors group-hover:bg-primary group-hover:text-foreground"
+                          aria-hidden="true"
+                        >
+                          {monogram}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-2">
+                            <p className="text-sm font-bold text-foreground">
+                              {skill.name}
+                            </p>
+                            <CheckCircle2
+                              className="h-3.5 w-3.5 shrink-0 text-sky"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <p className="mt-1 text-xs leading-relaxed text-muted">
+                            {t(skill.evidence, locale)}
+                          </p>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

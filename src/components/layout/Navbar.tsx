@@ -28,6 +28,33 @@ export function Navbar({ locale, messages }: NavbarProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const sectionIds = [
+      "home",
+      messages.anchors.about,
+      messages.anchors.projects,
+      messages.anchors.contact,
+    ];
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible?.target.id) {
+          setActiveHash(visible.target.id);
+        }
+      },
+      { rootMargin: "-35% 0px -50% 0px", threshold: 0.05 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [messages.anchors, pathname]);
+
   const switchedPath = pathname
     ? pathname.replace(new RegExp(`^/${locale}(?=/|$)`), `/${targetLocale}`)
     : `/${targetLocale}`;

@@ -1,4 +1,5 @@
-import { Code2, Mail, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Code2, Mail, Sparkles, Award, Layers, Cpu, Briefcase } from "lucide-react";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
 import { Container } from "@/components/ui/Container";
@@ -11,6 +12,33 @@ interface AboutProps {
 }
 
 export function About({ locale, messages }: AboutProps) {
+  const stats = [
+    {
+      value: "3.90",
+      label: locale === "id" ? "IPK Sarjana Terapan (D4)" : "Applied Bachelor GPA",
+      sub: "Politeknik Negeri Indramayu",
+      icon: Award,
+    },
+    {
+      value: "4+",
+      label: locale === "id" ? "Proyek Web, Mobile & ML" : "Web, Mobile & ML Projects",
+      sub: locale === "id" ? "Terintegrasi & Teruji" : "Integrated & Delivered",
+      icon: Layers,
+    },
+    {
+      value: "10+",
+      label: locale === "id" ? "Teknologi & Database" : "Technologies & Databases",
+      sub: "Laravel, Flask, React, SQL",
+      icon: Cpu,
+    },
+    {
+      value: "2025",
+      label: locale === "id" ? "Pengalaman Industri" : "Industry Internship",
+      sub: "Bandung Techno Park",
+      icon: Briefcase,
+    },
+  ];
+
   return (
     <section
       id={messages.anchors.about}
@@ -23,7 +51,7 @@ export function About({ locale, messages }: AboutProps) {
           subtitle={messages.about.subtitle}
         />
 
-        {/* 3-Column Stage inspired by alfari.my.id (Intro Left | Orbit Center | Bio Right) */}
+        {/* 3-Column Stage inspired by alfari.my.id (Intro Left | Portrait Orbit Center | Bio Right) */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
           {/* Column 1: Greeting + Big Name + Contact Action */}
           <div className="text-center lg:col-span-4 lg:text-left">
@@ -50,35 +78,43 @@ export function About({ locale, messages }: AboutProps) {
             </div>
           </div>
 
-          {/* Column 2: Interactive Orbit & Developer Identity Stage */}
-          <div className="relative flex items-center justify-center py-6 lg:col-span-4">
-            {/* Orbit Rings */}
+          {/* Column 2: Portrait Stage with Cosmic Orbit Rings (alfari.my.id .about-portrait-stage) */}
+          <div className="relative flex items-center justify-center py-4 lg:col-span-4">
+            {/* Outer & Inner Cosmic Orbit Rings */}
             <div
-              className="pointer-events-none absolute h-64 w-64 rounded-full border border-sky/20 sm:h-72 sm:w-72"
+              className="pointer-events-none absolute h-72 w-72 rounded-full border border-sky/20 sm:h-80 sm:w-80"
               aria-hidden="true"
             />
             <div
-              className="pointer-events-none absolute h-52 w-52 rounded-full border border-primary/30 sm:h-56 sm:w-56"
+              className="pointer-events-none absolute h-60 w-60 rounded-full border border-primary/35 sm:h-64 sm:w-64"
               aria-hidden="true"
             />
             <span
-              className="cyan-dot pointer-events-none absolute top-8 right-12 h-2.5 w-2.5 rounded-full"
+              className="cyan-dot pointer-events-none absolute top-6 right-10 h-2.5 w-2.5 rounded-full"
+              aria-hidden="true"
+            />
+            <span
+              className="cyan-dot pointer-events-none absolute bottom-10 left-10 h-2 w-2 rounded-full"
               aria-hidden="true"
             />
 
-            <div className="glass-card relative z-10 flex w-full max-w-[270px] flex-col items-center rounded-3xl p-7 text-center">
-              <div className="glow-btn-primary mb-4 flex h-20 w-20 items-center justify-center rounded-2xl font-mono text-2xl font-extrabold">
-                JP
-              </div>
-              <p className="text-base font-bold text-foreground">
-                {profileData.name}
-              </p>
-              <p className="mt-1 font-mono text-xs text-sky">
-                D4 Teknik Informatika (RPL)
-              </p>
-              <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 font-mono text-xs font-bold text-sky">
-                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>IPK 3,90 / 4.00</span>
+            <div className="glass-card group relative z-10 w-full max-w-[290px] overflow-hidden rounded-3xl p-3">
+              <div className="relative h-80 w-full overflow-hidden rounded-2xl bg-surface-alt">
+                <Image
+                  src={profileData.avatar}
+                  alt={profileData.name}
+                  fill
+                  sizes="100vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="portrait-fade absolute inset-0" aria-hidden="true" />
+
+                <div className="absolute right-3 bottom-3 left-3 text-center">
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/50 bg-surface/85 px-3.5 py-1 font-mono text-xs font-bold text-sky backdrop-blur-md">
+                    <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>IPK 3,90 / 4.00 • D4 RPL</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -104,6 +140,34 @@ export function About({ locale, messages }: AboutProps) {
               </ButtonLink>
             </div>
           </div>
+        </div>
+
+        {/* 4-Card Experience & Impact Stats Grid (alfari.my.id .experience-stats) */}
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="glass-card flex items-center justify-between gap-4 rounded-2xl p-6 transition-transform duration-200 hover:-translate-y-1"
+              >
+                <div>
+                  <p className="text-gradient-alfari font-mono text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1.5 text-sm font-bold text-foreground">
+                    {stat.label}
+                  </p>
+                  <p className="mt-0.5 font-mono text-xs text-muted">
+                    {stat.sub}
+                  </p>
+                </div>
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/40 bg-primary/15 text-sky">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

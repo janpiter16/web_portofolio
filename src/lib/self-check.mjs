@@ -30,6 +30,7 @@ assert.deepEqual(
 const requiredAssets = [
   "public/cv/resume-id.pdf",
   "public/cv/resume-en.pdf",
+  "public/images/profile/janpiter-portrait.jpg",
   "public/images/projects/portfolio-preview.svg",
   "public/images/projects/project-two-preview.svg",
   "public/images/projects/project-three-preview.svg",

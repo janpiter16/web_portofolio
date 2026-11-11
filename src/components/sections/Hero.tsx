@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, Download, Mail, MapPin, Terminal, Award } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { Locale, Messages, t } from "@/lib/i18n";
@@ -117,68 +118,76 @@ export function Hero({ locale, messages }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Column: Interactive Hanging Lanyard ID Card */}
+          {/* Right Column: Interactive Hanging Lanyard ID Card with Portrait */}
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-sm">
               {/* Lanyard Strap & Metal Clip */}
               <div className="mx-auto flex flex-col items-center" aria-hidden="true">
-                <div className="h-10 w-7 rounded-t-sm border-x border-border-token bg-surface-alt" />
-                <div className="h-3.5 w-11 rounded-md border border-border-token bg-slate-800 shadow-sm" />
+                <div className="h-12 w-7 rounded-t-sm border-x border-border-token bg-surface-alt" />
+                <div className="h-3.5 w-12 rounded-md border border-border-token bg-slate-800 shadow-sm" />
               </div>
 
-              {/* Glossy Lanyard Card */}
-              <div className="glass-card relative -mt-1 rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1.5">
-                <div className="mx-auto mb-5 h-2.5 w-16 rounded-full border border-border-token bg-surface" aria-hidden="true" />
+              {/* Glossy Lanyard ID Card */}
+              <div className="glass-card group relative -mt-1 rounded-3xl p-5 transition-all duration-300 hover:-translate-y-1.5">
+                <div className="mx-auto mb-4 h-2.5 w-16 rounded-full border border-border-token bg-surface" aria-hidden="true" />
 
-                <div className="flex items-center justify-between border-b border-border-token pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="glow-btn-primary flex h-11 w-11 items-center justify-center rounded-xl font-mono text-sm font-extrabold">
-                      JP
-                    </div>
+                {/* Portrait Photo Window inside ID Badge */}
+                <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-border-token bg-surface-alt">
+                  <Image
+                    src={profileData.avatar}
+                    alt={profileData.name}
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="portrait-fade absolute inset-0" aria-hidden="true" />
+
+                  <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-primary/50 bg-surface/80 px-2.5 py-1 font-mono text-[10px] font-bold text-sky backdrop-blur-md">
+                    <span className="cyan-dot h-1.5 w-1.5 rounded-full" aria-hidden="true" />
+                    <span>ID VERIFIED</span>
+                  </div>
+
+                  <div className="absolute right-4 bottom-3 left-4 flex items-end justify-between">
                     <div>
-                      <p className="text-base font-bold text-foreground">
+                      <p className="text-lg font-extrabold tracking-tight text-foreground">
                         Janpiter P. Purba
                       </p>
-                      <p className="font-mono text-xs text-sky">
-                        Software Developer
+                      <p className="font-mono text-xs font-semibold text-sky">
+                        Backend & Fullstack Developer
                       </p>
                     </div>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-primary/50 bg-primary/25 text-sky backdrop-blur-md">
+                      <Terminal className="h-4 w-4" aria-hidden="true" />
+                    </span>
                   </div>
-                  <Terminal className="h-5 w-5 text-sky" aria-hidden="true" />
                 </div>
 
-                <dl className="mt-5 space-y-3 font-mono text-xs">
-                  <div className="rounded-xl border border-border-token bg-surface/75 p-3.5">
-                    <dt className="text-muted">SPECIALIZATION</dt>
-                    <dd className="mt-1 font-semibold text-foreground">
-                      Backend, RESTful API & Fullstack Web
-                    </dd>
-                  </div>
-
-                  <div className="rounded-xl border border-border-token bg-surface/75 p-3.5">
-                    <dt className="text-muted">TECH STACK</dt>
-                    <dd className="mt-1 text-sky">
+                <dl className="mt-4 space-y-2.5 font-mono text-xs">
+                  <div className="rounded-xl border border-border-token bg-surface/75 p-3">
+                    <dt className="text-[10px] text-muted">CORE STACK</dt>
+                    <dd className="mt-0.5 font-semibold text-foreground">
                       Laravel • Python Flask • React • MySQL & PostgreSQL
                     </dd>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-xl border border-border-token bg-surface/75 p-3.5">
-                      <dt className="text-muted">DEGREE</dt>
-                      <dd className="mt-1 font-semibold text-foreground">D4 RPL</dd>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div className="rounded-xl border border-border-token bg-surface/75 p-3">
+                      <dt className="text-[10px] text-muted">DEGREE</dt>
+                      <dd className="mt-0.5 font-semibold text-foreground">D4 RPL</dd>
                     </div>
-                    <div className="rounded-xl border border-border-token bg-surface/75 p-3.5">
-                      <dt className="text-muted">GPA / IPK</dt>
-                      <dd className="mt-1 font-semibold text-sky">3.90 / 4.00</dd>
+                    <div className="rounded-xl border border-border-token bg-surface/75 p-3">
+                      <dt className="text-[10px] text-muted">GPA / IPK</dt>
+                      <dd className="mt-0.5 font-semibold text-sky">3.90 / 4.00</dd>
                     </div>
                   </div>
                 </dl>
 
-                <div className="mt-5 flex items-center justify-between border-t border-border-token pt-4 font-mono text-[11px] text-muted">
+                <div className="mt-4 flex items-center justify-between border-t border-border-token pt-3.5 font-mono text-[11px] text-muted">
                   <span>Politeknik Negeri Indramayu</span>
                   <span className="inline-flex items-center gap-1.5 text-sky">
                     <span className="cyan-dot h-1.5 w-1.5 rounded-full" aria-hidden="true" />
-                    ACTIVE
+                    AVAILABLE
                   </span>
                 </div>
               </div>

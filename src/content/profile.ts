@@ -2,6 +2,7 @@ import { LocalizedString, Locale } from "@/lib/i18n";
 
 export interface ProfileData {
   name: string;
+  avatar: string;
   title: LocalizedString;
   roles: Record<Locale, string[]>;
   location: LocalizedString;
@@ -16,6 +17,7 @@ export interface ProfileData {
 
 export const profileData: ProfileData = {
   name: "Janpiter Pandapotan Purba",
+  avatar: "/images/profile/janpiter-portrait.jpg",
   title: {
     id: "Software Developer | Backend & Fullstack",
     en: "Software Developer | Backend & Fullstack",
