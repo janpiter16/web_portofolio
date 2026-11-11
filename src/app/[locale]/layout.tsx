@@ -39,6 +39,14 @@ export async function generateMetadata({
       siteName: profileData.name,
       locale: locale === "id" ? "id_ID" : "en_US",
       type: "website",
+      images: [
+        {
+          url: "/images/og-image.svg",
+          width: 1200,
+          height: 630,
+          alt: `${profileData.name} — ${messages.meta.title}`,
+        },
+      ],
     },
   };
 }
@@ -61,6 +69,12 @@ export default async function LocaleLayout({
 
   return (
     <div lang={validLocale} className="flex min-h-screen flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-navy"
+      >
+        {validLocale === "id" ? "Lewati ke konten utama" : "Skip to main content"}
+      </a>
       <Navbar locale={validLocale} messages={messages} />
       <main id="main-content" className="flex-1">
         {children}

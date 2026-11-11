@@ -62,6 +62,9 @@ export default async function ProjectDetailPage({
 
   const messages = getMessages(locale);
   const labels = messages.projects.detailLabels;
+  const relatedProjects = projects
+    .filter((item) => item.slug !== project.slug)
+    .slice(0, 2);
 
   return (
     <article className="py-16 sm:py-24">
@@ -194,6 +197,39 @@ export default async function ProjectDetailPage({
             </section>
           </div>
         </div>
+
+        {relatedProjects.length > 0 && (
+          <div className="mt-16 border-t border-border-token pt-12">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <h2 className="text-2xl font-bold text-navy">
+                {locale === "id" ? "Proyek Lainnya" : "Other Projects"}
+              </h2>
+              <Link
+                href={`/${locale}/projects`}
+                className="text-sm font-semibold text-primary hover:text-primary-hover transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-sm"
+              >
+                {messages.projects.viewAll} →
+              </Link>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+              {relatedProjects.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  href={`/${locale}/projects/${rel.slug}`}
+                  className="group rounded-xl border border-border-token bg-surface-alt p-6 transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                >
+                  <h3 className="text-lg font-bold text-navy group-hover:text-primary transition-colors">
+                    {t(rel.title, locale)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {t(rel.summary, locale)}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </article>
   );

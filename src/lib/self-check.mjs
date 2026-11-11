@@ -33,6 +33,7 @@ const requiredAssets = [
   "public/images/projects/portfolio-preview.svg",
   "public/images/projects/project-two-preview.svg",
   "public/images/projects/project-three-preview.svg",
+  "public/images/og-image.svg",
 ];
 
 for (const relPath of requiredAssets) {

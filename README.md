@@ -21,12 +21,20 @@ Website portofolio profesional bilingual (Bahasa Indonesia dan English) untuk me
 ## Quick start
 
 ```bash
-npx create-next-app@latest personal-portfolio
-cd personal-portfolio
+npm install
 npm run dev
 ```
 
-Buka `http://localhost:3000`.
+Buka `http://localhost:3000` (otomatis mengarahkan ke `/id`, tersedia juga dalam `/en`).
+
+## Quality checks
+
+```bash
+npm run lint
+npx tsc --noEmit
+node src/lib/self-check.mjs
+npm run build
+```
 
 ## Documentation
 - [Product Requirements (PRD)](docs/PRD.md)
