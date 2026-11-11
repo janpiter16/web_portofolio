@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Globe, Download, Code2 } from "lucide-react";
+import { Menu, X, Globe, Download } from "lucide-react";
 import { Locale, Messages, getOppositeLocale } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
 
@@ -66,11 +66,13 @@ export function Navbar({ locale, messages }: NavbarProps) {
     { id: messages.anchors.contact, label: messages.nav.contact, href: `/${locale}#${messages.anchors.contact}` },
   ];
 
+  const activeItem = navItems.find((item) => item.id === activeHash) ?? navItems[0];
+
   return (
     <header className="fixed top-3 right-0 left-0 z-50 flex justify-center px-3 sm:px-5">
       <div
         key={pathname}
-        className="glass-pill navbar-pill-enter relative flex w-full max-w-fit items-center justify-between gap-2 overflow-hidden rounded-full px-3 py-2 sm:gap-3 sm:px-4"
+        className="glass-pill navbar-pill-enter relative flex w-full max-w-fit items-center justify-between gap-1.5 overflow-hidden rounded-full p-1.5 sm:gap-2 sm:px-3 sm:py-2"
       >
         {/* Shimmer Light Beam Sweep on Load */}
         <span
@@ -78,22 +80,15 @@ export function Navbar({ locale, messages }: NavbarProps) {
           aria-hidden="true"
         />
 
-        {/* Brand Icon + Name */}
-        <Link
-          href={`/${locale}`}
-          onClick={() => setActiveHash("home")}
-          className="group relative z-10 flex items-center gap-2.5 pr-2 font-bold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky rounded-full shrink-0"
-        >
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-xl border border-primary/50 bg-primary/20 text-sky transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
-            <Code2 className="h-4 w-4" aria-hidden="true" />
-            <span className="cyan-dot absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full animate-pulse" aria-hidden="true" />
+        {/* Mobile Active Section Indicator */}
+        <div className="flex items-center gap-2 pl-2.5 pr-1 md:hidden">
+          <span className="cyan-dot h-2 w-2 rounded-full animate-pulse" aria-hidden="true" />
+          <span className="font-mono text-xs font-bold text-sky">
+            {activeItem.label}
           </span>
-          <span className="text-sm font-bold transition-colors group-hover:text-sky sm:inline">
-            JanpiterDev.
-          </span>
-        </Link>
+        </div>
 
-        {/* Desktop Pill Links with Active Glow */}
+        {/* Desktop Pill Links with Active Glow & Pulse Animation */}
         <nav aria-label="Main Navigation" className="relative z-10 hidden md:flex md:items-center md:gap-1 shrink-0">
           {navItems.map((item) => {
             const isActive = activeHash === item.id;
@@ -106,7 +101,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
                 }}
                 className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
-                    ? "border border-sky/50 bg-primary/25 text-foreground shadow-sm"
+                    ? "nav-pill-active-pulse border border-sky/50 bg-primary/25 text-foreground shadow-sm"
                     : "text-muted hover:-translate-y-0.5 hover:bg-white/5 hover:text-foreground"
                 }`}
               >
@@ -124,8 +119,8 @@ export function Navbar({ locale, messages }: NavbarProps) {
 
         <div className="relative z-10 hidden h-5 w-px bg-border-token md:block" aria-hidden="true" />
 
-        {/* Right Actions: Language Switcher & CV CTA */}
-        <div className="relative z-10 flex items-center gap-2 shrink-0">
+        {/* Right Actions: Language Switcher & Mobile Menu Toggle */}
+        <div className="relative z-10 flex items-center gap-1.5 shrink-0">
           <Link
             href={switchedPath}
             aria-label={messages.nav.switchLanguage}
@@ -134,15 +129,6 @@ export function Navbar({ locale, messages }: NavbarProps) {
             <Globe className="h-3.5 w-3.5 text-sky" aria-hidden="true" />
             <span>{targetLocale.toUpperCase()}</span>
           </Link>
-
-          <a
-            href={profileData.cvPath[locale]}
-            download
-            className="glow-btn-primary hidden items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200 sm:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
-          >
-            <Download className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>{messages.nav.downloadCv}</span>
-          </a>
 
           <button
             type="button"

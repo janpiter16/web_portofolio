@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Mail, MapPin, Award } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Mail, MapPin, Award } from "lucide-react";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/BrandIcons";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
@@ -76,32 +76,28 @@ export function Hero({ locale, messages }: HeroProps) {
               </ButtonLink>
             </div>
 
-            {/* FIND ME Row (Unboxed / Frameless Icons) */}
-            <div className="mt-9 flex items-center gap-5">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-sky">
-                FIND ME
-              </span>
-              <span className="h-px w-8 bg-border-token" aria-hidden="true" />
-              <div className="flex items-center gap-5">
-                {profileData.email && (
-                  <a
-                    href={`mailto:${profileData.email}`}
-                    aria-label={`Email ${profileData.name}`}
-                    title={profileData.email}
-                    className="inline-flex items-center justify-center text-muted hover:-translate-y-1 hover:scale-110 hover:text-sky transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky"
-                  >
-                    <Mail className="h-5 w-5" aria-hidden="true" />
-                  </a>
-                )}
+            {/* FIND ME Connect Dock */}
+            <div className="mt-9 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-sky">
+                  FIND ME
+                </span>
+                <span className="h-px w-10 bg-gradient-to-r from-sky/60 to-transparent" aria-hidden="true" />
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
                 {isValidExternalUrl(profileData.githubUrl) && (
                   <a
                     href={profileData.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="GitHub Profile"
-                    className="inline-flex items-center justify-center text-muted hover:-translate-y-1 hover:scale-110 hover:text-sky transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky"
+                    className="group inline-flex items-center gap-2 rounded-xl border border-border-token bg-white/5 px-3 py-2 text-xs font-medium text-foreground transition-all duration-200 hover:-translate-y-1 hover:border-sky hover:bg-primary/20 hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
-                    <GithubIcon className="h-5 w-5" />
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white/5 text-muted transition-colors group-hover:text-sky" aria-hidden="true">
+                      <GithubIcon className="h-3.5 w-3.5" />
+                    </span>
+                    <span className="font-mono text-xs font-semibold">GitHub</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky" aria-hidden="true" />
                   </a>
                 )}
                 {isValidExternalUrl(profileData.linkedinUrl) && (
@@ -110,9 +106,13 @@ export function Hero({ locale, messages }: HeroProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn Profile"
-                    className="inline-flex items-center justify-center text-muted hover:-translate-y-1 hover:scale-110 hover:text-sky transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky"
+                    className="group inline-flex items-center gap-2 rounded-xl border border-border-token bg-white/5 px-3 py-2 text-xs font-medium text-foreground transition-all duration-200 hover:-translate-y-1 hover:border-sky hover:bg-primary/20 hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
-                    <LinkedinIcon className="h-5 w-5" />
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white/5 text-muted transition-colors group-hover:text-sky" aria-hidden="true">
+                      <LinkedinIcon className="h-3.5 w-3.5" />
+                    </span>
+                    <span className="font-mono text-xs font-semibold">LinkedIn</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky" aria-hidden="true" />
                   </a>
                 )}
                 {isValidExternalUrl(profileData.instagramUrl) && (
@@ -121,9 +121,26 @@ export function Hero({ locale, messages }: HeroProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram Profile"
-                    className="inline-flex items-center justify-center text-muted hover:-translate-y-1 hover:scale-110 hover:text-sky transition-all focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky"
+                    className="group inline-flex items-center gap-2 rounded-xl border border-border-token bg-white/5 px-3 py-2 text-xs font-medium text-foreground transition-all duration-200 hover:-translate-y-1 hover:border-sky hover:bg-primary/20 hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
-                    <InstagramIcon className="h-5 w-5" />
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white/5 text-muted transition-colors group-hover:text-sky" aria-hidden="true">
+                      <InstagramIcon className="h-3.5 w-3.5" />
+                    </span>
+                    <span className="font-mono text-xs font-semibold">Instagram</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky" aria-hidden="true" />
+                  </a>
+                )}
+                {profileData.email && (
+                  <a
+                    href={`mailto:${profileData.email}`}
+                    aria-label={`Email ${profileData.name}`}
+                    className="group inline-flex items-center gap-2 rounded-xl border border-border-token bg-white/5 px-3 py-2 text-xs font-medium text-foreground transition-all duration-200 hover:-translate-y-1 hover:border-sky hover:bg-primary/20 hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                  >
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-white/5 text-muted transition-colors group-hover:text-sky" aria-hidden="true">
+                      <Mail className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <span className="font-mono text-xs font-semibold">Email</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky" aria-hidden="true" />
                   </a>
                 )}
               </div>

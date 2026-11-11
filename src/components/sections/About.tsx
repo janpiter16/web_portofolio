@@ -42,8 +42,13 @@ export function About({ locale, messages }: AboutProps) {
   return (
     <section
       id={messages.anchors.about}
-      className="relative py-20 sm:py-28"
+      className="scroll-entry-section relative py-20 sm:py-28"
     >
+      {/* Ambient Cosmic Section Entry Aura */}
+      <div
+        className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 h-28 w-3/4 max-w-2xl rounded-full bg-gradient-to-r from-transparent via-sky/15 to-transparent blur-3xl"
+        aria-hidden="true"
+      />
       <Container>
         <SectionHeading
           eyebrow={messages.about.eyebrow}

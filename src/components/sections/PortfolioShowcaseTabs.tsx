@@ -80,8 +80,13 @@ export function PortfolioShowcaseTabs({
   return (
     <section
       id={messages.anchors.projects}
-      className="relative py-20 sm:py-28"
+      className="scroll-entry-section relative py-20 sm:py-28"
     >
+      {/* Ambient Cosmic Section Entry Aura */}
+      <div
+        className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 h-28 w-3/4 max-w-2xl rounded-full bg-gradient-to-r from-transparent via-sky/15 to-transparent blur-3xl"
+        aria-hidden="true"
+      />
       <span id={messages.anchors.skills} className="sr-only" />
       <span id={messages.anchors.experience} className="sr-only" />
       <span id={messages.anchors.education} className="sr-only" />

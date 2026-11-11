@@ -307,6 +307,48 @@ body {
   animation: navItemCascade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Active navbar pill transition animation when scrolling/clicking into another section */
+@keyframes navPillActivePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--token-border-glow);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 16px 2px var(--token-border-glow);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 6px 1px var(--token-border-glow);
+  }
+}
+
+.nav-pill-active-pulse {
+  animation: navPillActivePulse 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Scroll-driven cosmic entrance animation when approaching/entering sections */
+@supports (animation-timeline: view()) {
+  .scroll-entry-section {
+    animation: scrollSectionEntry linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
+  }
+}
+
+@keyframes scrollSectionEntry {
+  0% {
+    opacity: 0.35;
+    transform: translateY(28px) scale(0.985);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 /* Page entrance on reload & route change (smooth fade & slide up) */
 @keyframes pageEnter {
   0% {
