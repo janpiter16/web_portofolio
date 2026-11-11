@@ -39,12 +39,12 @@ export const projects: ProjectItem[] = [
       en: "Decision Support System for Freshwater Fish Harvest Pricing",
     },
     summary: {
-      id: "Aplikasi web fullstack berbasis Laravel dan layanan RESTful API Python Flask yang mengimplementasikan Machine Learning (Regresi Linear) untuk memprediksi harga panen ikan air tawar dan analisis kelayakan usaha.",
-      en: "Fullstack web application built with Laravel and a Python Flask RESTful API service implementing Linear Regression Machine Learning to predict freshwater fish harvest prices and business feasibility.",
+      id: "Aplikasi multiplatform berbasis web (Laravel) dan mobile (Flutter) terintegrasi layanan RESTful API Python Flask yang mengimplementasikan Machine Learning (Regresi Linear) untuk memprediksi harga panen ikan air tawar dan analisis kelayakan usaha.",
+      en: "Multiplatform application featuring a web (Laravel) and mobile (Flutter) interface integrated with a Python Flask RESTful API service implementing Linear Regression Machine Learning to predict freshwater fish harvest prices and business feasibility.",
     },
     description: {
-      id: "Proyek Tugas Akhir/Skripsi di Politeknik Negeri Indramayu yang mengintegrasikan aplikasi manajemen web berbasis Laravel (PHP) dengan layanan prediksi Machine Learning berbasis Python Flask dan database MySQL.",
-      en: "Final Thesis project at Politeknik Negeri Indramayu integrating a Laravel (PHP) web application with a Python Flask Machine Learning prediction service and a MySQL relational database.",
+      id: "Proyek Tugas Akhir/Skripsi di Politeknik Negeri Indramayu yang mengintegrasikan aplikasi web berbasis Laravel (PHP) dan antarmuka aplikasi mobile berbasis Flutter dengan layanan prediksi Machine Learning berbasis Python Flask dan database MySQL.",
+      en: "Final Thesis project at Politeknik Negeri Indramayu integrating a Laravel (PHP) web application and a Flutter mobile application interface with a Python Flask Machine Learning prediction service and a MySQL database.",
     },
     problem: {
       id: "Pembudidaya ikan air tawar membutuhkan dasar perhitungan yang objektif untuk memperkirakan harga jual panen dan mengevaluasi apakah hasil panen berada pada kondisi untung, impas, atau rugi.",
@@ -69,6 +69,7 @@ export const projects: ProjectItem[] = [
     technologies: [
       "PHP",
       "Laravel",
+      "Flutter",
       "Python",
       "Flask",
       "RESTful API",
@@ -79,13 +80,13 @@ export const projects: ProjectItem[] = [
       {
         step: "01",
         layer: {
-          id: "Antarmuka & Aplikasi Web Utama",
-          en: "Web UI & Main Application",
+          id: "Antarmuka Multiplatform (Web & Mobile)",
+          en: "Multiplatform UI (Web & Mobile)",
         },
-        tech: "PHP • Laravel",
+        tech: "PHP • Laravel • Flutter",
         detail: {
-          id: "Menangani autentikasi pengguna, input parameter budidaya ikan, dan visualisasi hasil prediksi serta kelayakan usaha.",
-          en: "Handles user authentication, fish farming parameter inputs, and visualization of prediction and business feasibility results.",
+          id: "Menangani antarmuka web dan aplikasi mobile berbasis Flutter untuk kemudahan input parameter panen di lapangan, autentikasi pengguna, serta visualisasi hasil prediksi.",
+          en: "Handles the web application and Flutter mobile interface for on-site harvest parameter inputs, authentication, and prediction visualizations.",
         },
       },
       {
@@ -126,6 +127,10 @@ export const projects: ProjectItem[] = [
       },
     ],
     features: [
+      {
+        id: "Tersedia antarmuka aplikasi mobile (Flutter) dan web (Laravel) yang responsif untuk kemudahan akses pembudidaya di lapangan",
+        en: "Integrated responsive mobile (Flutter) and web (Laravel) interfaces for convenient on-site farmer access",
+      },
       {
         id: "Integrasi arsitektur backend Laravel dengan layanan prediksi Python Flask melalui RESTful API",
         en: "Backend integration between Laravel and a Python Flask prediction service via RESTful API",
