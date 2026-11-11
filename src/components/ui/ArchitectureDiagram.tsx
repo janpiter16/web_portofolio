@@ -43,7 +43,7 @@ export function ArchitectureDiagram({ nodes = [], locale }: ArchitectureDiagramP
       </div>
 
       {/* Interactive Flow Nodes */}
-      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {nodes.map((node, idx) => {
           const isSelected = idx === selectedIndex;
           return (

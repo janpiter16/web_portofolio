@@ -33,10 +33,10 @@ export function Hero({ locale, messages }: HeroProps) {
 
             {/* Dual-Line Headline ("Welcome to" + "My Portfolio") */}
             <div className="flex flex-col gap-0.5">
-              <span className="text-gradient-alfari text-[42px] font-extrabold leading-[1.05] tracking-tight sm:text-[64px]">
+              <span className="text-gradient-alfari text-3xl font-extrabold leading-[1.08] tracking-tight min-[420px]:text-4xl sm:text-5xl lg:text-[60px] xl:text-[64px]">
                 {locale === "id" ? "Selamat Datang di" : "Welcome to"}
               </span>
-              <h1 className="text-[42px] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-[64px]">
+              <h1 className="text-3xl font-extrabold leading-[1.08] tracking-tight text-foreground min-[420px]:text-4xl sm:text-5xl lg:text-[60px] xl:text-[64px]">
                 {locale === "id" ? "Portofolio Saya" : "My Portfolio"}
               </h1>
             </div>

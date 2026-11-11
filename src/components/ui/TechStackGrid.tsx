@@ -174,14 +174,14 @@ const techBrands: TechBrandItem[] = [
 
 export function TechStackGrid({ locale }: { locale: Locale }) {
   return (
-    <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    <div className="mb-10 grid grid-cols-1 min-[420px]:grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
       {techBrands.map((item) => (
         <div
           key={item.name}
-          className="glass-card group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky"
+          className="glass-card group flex items-center gap-3 rounded-2xl p-3 sm:gap-3.5 sm:p-4 transition-all duration-200 hover:-translate-y-1 hover:border-sky"
         >
           <span
-            className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-transform duration-300 group-hover:scale-110 ${item.badgeBgClass} ${item.colorClass}`}
+            className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border transition-transform duration-300 group-hover:scale-110 ${item.badgeBgClass} ${item.colorClass}`}
           >
             {item.svg}
           </span>

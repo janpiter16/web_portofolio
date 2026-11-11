@@ -53,7 +53,7 @@ export function Contact({ locale, messages }: ContactProps) {
 
         <MotionFadeIn className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Left Panel: Glass Message Panel (alfari.my.id .contact-message-panel) */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 lg:col-span-7">
+          <div className="glass-card rounded-2xl p-5 sm:p-7 md:p-8 lg:col-span-7">
             <h3 className="text-2xl font-bold text-sky">
               {locale === "id" ? "Hubungi" : "Get in Touch"}
             </h3>

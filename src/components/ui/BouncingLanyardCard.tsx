@@ -27,7 +27,7 @@ export function BouncingLanyardCard() {
   };
 
   return (
-    <div className="lanyard-pendulum relative mx-auto max-w-sm select-none">
+    <div className="lanyard-pendulum relative mx-auto w-full max-w-[340px] sm:max-w-sm select-none">
       {/* Lanyard Strap & Metal Clip */}
       <div className="mx-auto flex flex-col items-center" aria-hidden="true">
         <div

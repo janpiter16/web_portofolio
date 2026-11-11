@@ -162,7 +162,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
         <nav
           id="mobile-navigation-menu"
           aria-label="Mobile Navigation"
-          className="glass-card fixed top-16 right-4 left-4 rounded-2xl p-4 md:hidden"
+          className="glass-card fixed top-16 right-4 left-4 z-50 rounded-2xl p-4 shadow-2xl backdrop-blur-2xl border-primary/30 md:hidden"
         >
           <ul className="flex flex-col space-y-1.5">
             {navItems.map((item) => (

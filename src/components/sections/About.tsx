@@ -64,7 +64,7 @@ export function About({ locale, messages }: AboutProps) {
             <p className="text-gradient-alfari text-xl font-extrabold tracking-tight sm:text-2xl">
               {locale === "id" ? "Halo, Saya" : "Hi, I'm"}
             </p>
-            <h3 className="text-gradient-silver mt-2 text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+            <h3 className="text-gradient-silver mt-2 text-2xl font-extrabold leading-[1.08] tracking-tight min-[400px]:text-3xl sm:text-4xl lg:text-5xl">
               Janpiter
               <br />
               Pandapotan Purba
@@ -88,11 +88,11 @@ export function About({ locale, messages }: AboutProps) {
           <div className="relative flex items-center justify-center py-4 lg:col-span-4">
             {/* Outer & Inner Cosmic Orbit Rings */}
             <div
-              className="pointer-events-none absolute h-72 w-72 rounded-full border border-sky/20 sm:h-80 sm:w-80"
+              className="pointer-events-none absolute h-64 w-64 max-w-[85vw] max-h-[85vw] rounded-full border border-sky/20 sm:h-80 sm:w-80"
               aria-hidden="true"
             />
             <div
-              className="pointer-events-none absolute h-60 w-60 rounded-full border border-primary/35 sm:h-64 sm:w-64"
+              className="pointer-events-none absolute h-52 w-52 max-w-[70vw] max-h-[70vw] rounded-full border border-primary/35 sm:h-64 sm:w-64"
               aria-hidden="true"
             />
             <span

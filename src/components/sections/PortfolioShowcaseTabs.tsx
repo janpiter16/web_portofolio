@@ -103,7 +103,7 @@ export function PortfolioShowcaseTabs({
         <div
           role="tablist"
           aria-label="Portfolio Showcase Categories"
-          className="glass-pill mx-auto mb-12 grid max-w-3xl grid-cols-2 gap-2 rounded-2xl p-2 sm:grid-cols-4"
+          className="glass-pill mx-auto mb-10 grid max-w-3xl grid-cols-2 gap-1.5 rounded-2xl p-1.5 sm:grid-cols-4 sm:gap-2 sm:p-2"
         >
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -115,7 +115,7 @@ export function PortfolioShowcaseTabs({
                 type="button"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative flex items-center justify-center gap-2.5 rounded-xl px-4 py-3.5 text-sm font-bold transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                className={`relative flex items-center justify-center gap-1.5 rounded-xl px-2.5 py-3 text-xs font-bold transition-colors duration-200 cursor-pointer min-[420px]:gap-2 min-[420px]:px-4 min-[420px]:py-3.5 min-[420px]:text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
                     ? "text-foreground"
                     : "text-muted hover:text-foreground"
@@ -128,11 +128,11 @@ export function PortfolioShowcaseTabs({
                     transition={{ type: "spring", stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-1.5 min-[420px]:gap-2">
                   <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span>{tab.label}</span>
+                  <span className="truncate">{tab.label}</span>
                   <span
-                    className={`rounded-full px-2 py-0.5 font-mono text-xs ${
+                    className={`rounded-full px-1.5 py-0.5 font-mono text-[10px] sm:px-2 sm:text-xs ${
                       isActive
                         ? "bg-white/20 text-foreground"
                         : "bg-white/5 text-muted"
