@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Code2, Cpu, Briefcase, GraduationCap, CheckCircle2, Award, ExternalLink } from "lucide-react";
+import {
+  Code2,
+  Cpu,
+  Briefcase,
+  GraduationCap,
+  CheckCircle2,
+  Award,
+  ExternalLink,
+  ArrowRight,
+} from "lucide-react";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { projects } from "@/content/projects";
 import { skillCategories } from "@/content/skills";
@@ -48,7 +57,7 @@ export function PortfolioShowcaseTabs({
     },
     {
       id: "skills",
-      label: messages.nav.skills,
+      label: "Tech Stack",
       count: skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0),
       icon: Cpu,
     },
@@ -69,32 +78,24 @@ export function PortfolioShowcaseTabs({
   return (
     <section
       id={messages.anchors.projects}
-      className="border-b border-border-token bg-surface-alt py-16 sm:py-24"
+      className="relative py-20 sm:py-28"
     >
-      {/* Hidden semantic anchors so navbar direct jumps (#keahlian, #pengalaman, #pendidikan) always resolve */}
       <span id={messages.anchors.skills} className="sr-only" />
       <span id={messages.anchors.experience} className="sr-only" />
       <span id={messages.anchors.education} className="sr-only" />
 
       <Container>
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow={messages.projects.eyebrow}
-            title={locale === "id" ? "Portofolio & Rekam Jejak" : "Portfolio Showcase"}
-            subtitle={messages.projects.subtitle}
-          />
-          <div className="mb-10 md:mb-12">
-            <ButtonLink href={`/${locale}/projects`} variant="outline">
-              <span>{messages.projects.viewAll}</span>
-            </ButtonLink>
-          </div>
-        </div>
+        <SectionHeading
+          eyebrow={messages.projects.eyebrow}
+          title="Portfolio"
+          subtitle={messages.projects.subtitle}
+        />
 
-        {/* Interactive Showcase Tab Bar (inspired by alfari.my.id) */}
+        {/* Centered Frosted Glass Tab Bar (alfari.my.id .portfolio-tab-bar) */}
         <div
           role="tablist"
           aria-label="Portfolio Showcase Categories"
-          className="mb-10 grid grid-cols-2 gap-2.5 rounded-2xl border border-border-token bg-navy p-2 sm:grid-cols-4"
+          className="glass-pill mx-auto mb-12 grid max-w-3xl grid-cols-2 gap-2 rounded-2xl p-2 sm:grid-cols-4"
         >
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -106,10 +107,10 @@ export function PortfolioShowcaseTabs({
                 type="button"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center justify-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                className={`flex items-center justify-center gap-2.5 rounded-xl px-4 py-3.5 text-sm font-bold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
-                    ? "bg-primary text-white shadow-sm"
-                    : "text-slate-300 hover:bg-slate-800/70 hover:text-white"
+                    ? "glow-btn-primary"
+                    : "text-muted hover:bg-white/5 hover:text-foreground"
                 }`}
               >
                 <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -117,8 +118,8 @@ export function PortfolioShowcaseTabs({
                 <span
                   className={`rounded-full px-2 py-0.5 font-mono text-xs ${
                     isActive
-                      ? "bg-white/20 text-white"
-                      : "bg-slate-800 text-slate-300"
+                      ? "bg-white/20 text-foreground"
+                      : "bg-white/5 text-muted"
                   }`}
                 >
                   {tab.count}
@@ -130,15 +131,24 @@ export function PortfolioShowcaseTabs({
 
         {/* Tab 1: Projects Grid */}
         {activeTab === "projects" && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.slug}
-                project={project}
-                locale={locale}
-                messages={messages}
-              />
-            ))}
+          <div>
+            <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  locale={locale}
+                  messages={messages}
+                />
+              ))}
+            </div>
+
+            <div className="mt-10 text-center">
+              <ButtonLink href={`/${locale}/projects`} variant="outline">
+                <span>{messages.projects.viewAll}</span>
+                <ArrowRight className="h-4 w-4 text-sky" aria-hidden="true" />
+              </ButtonLink>
+            </div>
           </div>
         )}
 
@@ -148,24 +158,24 @@ export function PortfolioShowcaseTabs({
             {skillCategories.map((category) => (
               <div
                 key={category.id}
-                className="rounded-2xl border border-border-token bg-surface p-6 shadow-xs transition-all duration-200 hover:border-primary"
+                className="glass-card rounded-2xl p-6 transition-all duration-200"
               >
-                <h3 className="text-lg font-bold text-navy">
+                <h3 className="text-lg font-bold text-foreground">
                   {t(category.title, locale)}
                 </h3>
 
-                <ul className="mt-5 space-y-4">
+                <ul className="mt-5 space-y-3.5">
                   {category.skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-start gap-3 rounded-xl border border-border-token bg-surface-alt p-3.5"
+                      className="flex items-start gap-3 rounded-xl border border-border-token bg-white/5 p-3.5 transition-colors hover:border-sky"
                     >
                       <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-sky"
                         aria-hidden="true"
                       />
                       <div>
-                        <p className="text-sm font-bold text-navy">
+                        <p className="text-sm font-bold text-foreground">
                           {skill.name}
                         </p>
                         <p className="mt-1 text-xs leading-relaxed text-muted">
@@ -186,17 +196,17 @@ export function PortfolioShowcaseTabs({
             {experiences.map((item) => (
               <article
                 key={item.id}
-                className="rounded-2xl border border-border-token bg-surface p-6 sm:p-8 shadow-xs transition-all duration-200 hover:border-primary"
+                className="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-200"
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-primary">
+                    <div className="flex items-center gap-2 text-sky">
                       <Briefcase className="h-4 w-4" aria-hidden="true" />
                       <span className="text-sm font-semibold">
                         {item.organization}
                       </span>
                     </div>
-                    <h3 className="mt-1 text-xl font-bold text-navy">
+                    <h3 className="mt-1 text-xl font-bold text-foreground">
                       {t(item.role, locale)}
                     </h3>
                   </div>
@@ -211,10 +221,10 @@ export function PortfolioShowcaseTabs({
 
                 <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                    <h4 className="text-xs font-semibold uppercase tracking-wider text-sky">
                       {messages.experience.responsibilitiesLabel}
                     </h4>
-                    <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-foreground">
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">
                       {item.responsibilities.map((resp, idx) => (
                         <li key={idx}>{t(resp, locale)}</li>
                       ))}
@@ -223,10 +233,10 @@ export function PortfolioShowcaseTabs({
 
                   {item.achievements.length > 0 && (
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-sky">
                         {messages.experience.achievementsLabel}
                       </h4>
-                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-foreground">
+                      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted">
                         {item.achievements.map((ach, idx) => (
                           <li key={idx}>{t(ach, locale)}</li>
                         ))}
@@ -245,22 +255,22 @@ export function PortfolioShowcaseTabs({
             {educations.map((edu) => (
               <article
                 key={edu.id}
-                className="rounded-2xl border border-border-token bg-surface p-6 sm:p-8 shadow-xs transition-all duration-200 hover:border-primary"
+                className="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-200"
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-sky">
                     <GraduationCap className="h-4 w-4" aria-hidden="true" />
                     {edu.period}
                   </span>
                 </div>
-                <h3 className="mt-2 text-xl font-bold text-navy">
+                <h3 className="mt-2 text-xl font-bold text-foreground">
                   {edu.institution}
                 </h3>
-                <p className="mt-1 text-sm font-semibold text-primary">
+                <p className="mt-1 text-sm font-semibold text-sky">
                   {t(edu.degree, locale)} — {t(edu.field, locale)}
                 </p>
                 {edu.notes && (
-                  <p className="mt-4 rounded-xl bg-surface-alt p-4 text-sm leading-relaxed text-foreground">
+                  <p className="mt-4 rounded-xl border border-border-token bg-white/5 p-4 text-sm leading-relaxed text-muted">
                     {t(edu.notes, locale)}
                   </p>
                 )}
@@ -270,11 +280,11 @@ export function PortfolioShowcaseTabs({
             {certifications.map((cert) => (
               <article
                 key={cert.id}
-                className="rounded-2xl border border-border-token bg-surface p-6 shadow-xs"
+                className="glass-card rounded-2xl p-6"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h4 className="flex items-center gap-2 text-base font-bold text-navy">
-                    <Award className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <h4 className="flex items-center gap-2 text-base font-bold text-foreground">
+                    <Award className="h-4 w-4 text-sky" aria-hidden="true" />
                     {cert.name}
                   </h4>
                   <span className="font-mono text-xs text-muted">{cert.date}</span>
@@ -285,7 +295,7 @@ export function PortfolioShowcaseTabs({
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-sky hover:underline"
                   >
                     <span>{messages.education.viewCredential}</span>
                     <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />

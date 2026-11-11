@@ -48,14 +48,14 @@ export default async function ProjectsIndexPage({
   const messages = getMessages(locale);
 
   return (
-    <section className="py-16 sm:py-24">
+    <section className="pt-28 pb-20 sm:pt-32 sm:pb-24">
       <Container>
         <div className="mb-8">
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-hover transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-sm"
+            className="inline-flex items-center gap-2 rounded-xl border border-border-token bg-white/5 px-4 py-2 text-sm font-semibold text-foreground hover:border-sky hover:text-sky transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
           >
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            <ArrowLeft className="h-4 w-4 text-sky" aria-hidden="true" />
             <span>{messages.projects.backToHome}</span>
           </Link>
         </div>
@@ -64,9 +64,10 @@ export default async function ProjectsIndexPage({
           eyebrow={messages.projects.eyebrow}
           title={messages.projects.pageTitle}
           subtitle={messages.projects.pageSubtitle}
+          centered={false}
         />
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard
               key={project.slug}

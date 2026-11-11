@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { Download, Mail, Send, User, MessageSquare, MapPin } from "lucide-react";
+import { Download, Mail, Send, User, MessageSquare, MapPin, ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
@@ -36,32 +36,32 @@ export function Contact({ locale, messages }: ContactProps) {
   return (
     <section
       id={messages.anchors.contact}
-      className="bg-surface py-16 sm:py-24"
+      className="relative py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
           eyebrow={messages.contact.eyebrow}
-          title={messages.contact.title}
+          title={locale === "id" ? "Hubungi Saya" : "Contact Me"}
           subtitle={messages.contact.subtitle}
         />
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* Left Panel: Interactive Quick Message Form (opens verified mailto:) */}
-          <div className="rounded-2xl border border-border-token bg-surface-alt p-6 sm:p-8 lg:col-span-7">
-            <h3 className="text-xl font-bold text-navy">
-              {locale === "id" ? "Kirim Pesan Langsung" : "Send a Direct Message"}
+          {/* Left Panel: Glass Message Panel (alfari.my.id .contact-message-panel) */}
+          <div className="glass-card rounded-2xl p-6 sm:p-8 lg:col-span-7">
+            <h3 className="text-2xl font-bold text-sky">
+              {locale === "id" ? "Hubungi" : "Get in Touch"}
             </h3>
             <p className="mt-1 text-sm text-muted">
               {locale === "id"
-                ? "Ada peluang kerja atau proyek yang ingin didiskusikan? Isi pesan di bawah untuk mengirim email langsung."
-                : "Have a role or project to discuss? Fill out the form below to open a pre-filled email."}
+                ? "Ada peluang kerja atau proyek yang ingin didiskusikan? Langsung kirim pesan di bawah..."
+                : "Have a role or project to discuss? Send a direct message below..."}
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div>
                 <label
                   htmlFor="contact-name"
-                  className="block text-xs font-semibold uppercase tracking-wider text-navy"
+                  className="block text-xs font-medium text-foreground"
                 >
                   {locale === "id" ? "Nama" : "Name"}
                 </label>
@@ -78,7 +78,7 @@ export function Contact({ locale, messages }: ContactProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder={locale === "id" ? "Nama Anda" : "Your Name"}
-                    className="w-full rounded-xl border border-border-token bg-surface py-2.5 pr-4 pl-10 text-sm text-foreground focus:border-primary focus:outline-2 focus:outline-offset-0 focus:outline-primary"
+                    className="w-full rounded-xl border border-border-token bg-white/5 py-3 pr-4 pl-10 text-sm text-foreground placeholder:text-muted/60 focus:border-sky focus:outline-2 focus:outline-offset-0 focus:outline-sky"
                   />
                 </div>
               </div>
@@ -86,7 +86,7 @@ export function Contact({ locale, messages }: ContactProps) {
               <div>
                 <label
                   htmlFor="contact-email"
-                  className="block text-xs font-semibold uppercase tracking-wider text-navy"
+                  className="block text-xs font-medium text-foreground"
                 >
                   Email
                 </label>
@@ -102,8 +102,8 @@ export function Contact({ locale, messages }: ContactProps) {
                     maxLength={200}
                     value={senderEmail}
                     onChange={(e) => setSenderEmail(e.target.value)}
-                    placeholder={locale === "id" ? "email@perusahaan.com" : "you@company.com"}
-                    className="w-full rounded-xl border border-border-token bg-surface py-2.5 pr-4 pl-10 text-sm text-foreground focus:border-primary focus:outline-2 focus:outline-offset-0 focus:outline-primary"
+                    placeholder={locale === "id" ? "Email Anda" : "Your Email"}
+                    className="w-full rounded-xl border border-border-token bg-white/5 py-3 pr-4 pl-10 text-sm text-foreground placeholder:text-muted/60 focus:border-sky focus:outline-2 focus:outline-offset-0 focus:outline-sky"
                   />
                 </div>
               </div>
@@ -111,13 +111,13 @@ export function Contact({ locale, messages }: ContactProps) {
               <div>
                 <label
                   htmlFor="contact-message"
-                  className="block text-xs font-semibold uppercase tracking-wider text-navy"
+                  className="block text-xs font-medium text-foreground"
                 >
                   {locale === "id" ? "Pesan" : "Message"}
                 </label>
                 <div className="relative mt-1.5">
                   <MessageSquare
-                    className="pointer-events-none absolute top-3 left-3.5 h-4 w-4 text-muted"
+                    className="pointer-events-none absolute top-3.5 left-3.5 h-4 w-4 text-muted"
                     aria-hidden="true"
                   />
                   <textarea
@@ -127,19 +127,15 @@ export function Contact({ locale, messages }: ContactProps) {
                     maxLength={2000}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder={
-                      locale === "id"
-                        ? "Tulis pesan atau detail diskusi proyek Anda..."
-                        : "Write your message or role details..."
-                    }
-                    className="w-full rounded-xl border border-border-token bg-surface py-2.5 pr-4 pl-10 text-sm text-foreground focus:border-primary focus:outline-2 focus:outline-offset-0 focus:outline-primary"
+                    placeholder={locale === "id" ? "Pesan Anda" : "Your Message"}
+                    className="w-full rounded-xl border border-border-token bg-white/5 py-3 pr-4 pl-10 text-sm text-foreground placeholder:text-muted/60 focus:border-sky focus:outline-2 focus:outline-offset-0 focus:outline-sky"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-hover transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="glow-btn-primary inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
               >
                 <Send className="h-4 w-4" aria-hidden="true" />
                 <span>{messages.contact.emailCta}</span>
@@ -147,76 +143,92 @@ export function Contact({ locale, messages }: ContactProps) {
             </form>
           </div>
 
-          {/* Right Panel: Direct Connect & CV Card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-border-token bg-navy p-6 text-white sm:p-8 lg:col-span-5">
+          {/* Right Panel: FIND ME Social Cards & CV Card (alfari.my.id .contact-find-me) */}
+          <div className="glass-card flex flex-col justify-between rounded-2xl p-6 sm:p-8 lg:col-span-5">
             <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-wider text-sky">
-                CONNECT & RESUME
-              </p>
-              <h3 className="mt-2 text-2xl font-bold text-white">
-                {profileData.name}
+              <h3 className="font-mono text-sm font-bold uppercase tracking-widest text-foreground">
+                FIND ME
               </h3>
-              <p className="mt-1 text-sm text-slate-300">
-                {t(profileData.title, locale)}
+              <p className="mt-1 text-sm text-muted">
+                {profileData.name} — {t(profileData.title, locale)}
               </p>
 
-              <div className="mt-6 space-y-4 border-t border-slate-800 pt-6">
+              <div className="mt-6 space-y-4">
                 <a
                   href={`mailto:${profileData.email}`}
-                  className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-sm text-slate-200 hover:border-sky hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                  className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                 >
-                  <Mail className="h-5 w-5 shrink-0 text-sky" aria-hidden="true" />
-                  <div className="overflow-hidden">
-                    <p className="text-xs text-slate-400">Email</p>
-                    <p className="truncate font-mono font-semibold text-white">
-                      {profileData.email}
-                    </p>
+                  <div className="flex items-center gap-3.5 overflow-hidden">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
+                      <Mail className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <div className="overflow-hidden">
+                      <p className="text-sm font-bold text-foreground">Email</p>
+                      <p className="truncate font-mono text-xs text-muted">
+                        {profileData.email}
+                      </p>
+                    </div>
                   </div>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted group-hover:text-sky" aria-hidden="true" />
                 </a>
 
-                <div className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-sm text-slate-200">
-                  <MapPin className="h-5 w-5 shrink-0 text-sky" aria-hidden="true" />
+                <div className="flex items-center gap-3.5 rounded-xl border border-border-token bg-white/5 p-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
+                    <MapPin className="h-5 w-5" aria-hidden="true" />
+                  </span>
                   <div>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-sm font-bold text-foreground">
                       {messages.hero.locationLabel}
                     </p>
-                    <p className="font-semibold text-white">
+                    <p className="text-xs text-muted">
                       {t(profileData.location, locale)}
                     </p>
                   </div>
                 </div>
-              </div>
 
-              {(isValidExternalUrl(profileData.githubUrl) ||
-                isValidExternalUrl(profileData.linkedinUrl)) && (
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {isValidExternalUrl(profileData.githubUrl) && (
-                    <a
-                      href={profileData.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-semibold text-white hover:border-sky"
-                    >
-                      <GithubIcon className="h-4 w-4" />
-                      <span>GitHub</span>
-                    </a>
-                  )}
-                  {isValidExternalUrl(profileData.linkedinUrl) && (
-                    <a
-                      href={profileData.linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-semibold text-white hover:border-sky"
-                    >
-                      <LinkedinIcon className="h-4 w-4" />
-                      <span>LinkedIn</span>
-                    </a>
-                  )}
-                </div>
-              )}
+                {isValidExternalUrl(profileData.githubUrl) && (
+                  <a
+                    href={profileData.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
+                        <GithubIcon className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-bold text-foreground">GitHub</p>
+                        <p className="text-xs text-muted">Source Code & Repositories</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                  </a>
+                )}
+
+                {isValidExternalUrl(profileData.linkedinUrl) && (
+                  <a
+                    href={profileData.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky"
+                  >
+                    <div className="flex items-center gap-3.5">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
+                        <LinkedinIcon className="h-5 w-5" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-bold text-foreground">LinkedIn</p>
+                        <p className="text-xs text-muted">Professional Network</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
             </div>
 
-            <div className="mt-8 border-t border-slate-800 pt-6">
+            <div className="mt-8 border-t border-border-token pt-6">
               <ButtonLink
                 href={profileData.cvPath[locale]}
                 variant="primary"

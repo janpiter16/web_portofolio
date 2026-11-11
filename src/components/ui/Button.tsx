@@ -5,16 +5,14 @@ import { cn } from "@/lib/utils";
 type ButtonVariant = "primary" | "secondary" | "outline";
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-primary text-white hover:bg-primary-hover shadow-sm",
-  secondary:
-    "bg-navy text-white hover:bg-navy/90 shadow-sm",
+  primary: "glow-btn-primary",
+  secondary: "border border-border-token bg-surface-alt text-foreground hover:border-sky",
   outline:
-    "border border-border-token bg-surface text-navy hover:bg-surface-alt",
+    "border border-border-token bg-white/5 text-foreground hover:border-sky hover:bg-primary/15",
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-200 cursor-pointer hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky disabled:pointer-events-none disabled:opacity-50";
 
 interface ButtonLinkProps {
   href: string;

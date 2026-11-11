@@ -1,7 +1,9 @@
+import { Code2, Mail, Sparkles } from "lucide-react";
 import { Locale, Messages, t } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ButtonLink } from "@/components/ui/Button";
 
 interface AboutProps {
   locale: Locale;
@@ -12,19 +14,96 @@ export function About({ locale, messages }: AboutProps) {
   return (
     <section
       id={messages.anchors.about}
-      className="border-b border-border-token bg-surface-alt py-16 sm:py-24"
+      className="relative py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
           eyebrow={messages.about.eyebrow}
-          title={messages.about.title}
+          title={locale === "id" ? "Tentang Saya" : "About Me"}
           subtitle={messages.about.subtitle}
         />
 
-        <div className="max-w-3xl space-y-5 text-base leading-relaxed text-foreground sm:text-lg">
-          {profileData.about.map((paragraph, index) => (
-            <p key={index}>{t(paragraph, locale)}</p>
-          ))}
+        {/* 3-Column Stage inspired by alfari.my.id (Intro Left | Orbit Center | Bio Right) */}
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+          {/* Column 1: Greeting + Big Name + Contact Action */}
+          <div className="text-center lg:col-span-4 lg:text-left">
+            <p className="text-gradient-alfari text-xl font-extrabold tracking-tight sm:text-2xl">
+              {locale === "id" ? "Halo, Saya" : "Hi, I'm"}
+            </p>
+            <h3 className="text-gradient-silver mt-2 text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl">
+              Janpiter
+              <br />
+              Pandapotan Purba
+            </h3>
+            <p className="mt-4 font-mono text-xs font-semibold uppercase tracking-wider text-sky">
+              {t(profileData.title, locale)}
+            </p>
+
+            <div className="mt-7">
+              <ButtonLink
+                href={`/${locale}#${messages.anchors.contact}`}
+                variant="primary"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                <span>{locale === "id" ? "Hubungi Saya" : "Contact Me"}</span>
+              </ButtonLink>
+            </div>
+          </div>
+
+          {/* Column 2: Interactive Orbit & Developer Identity Stage */}
+          <div className="relative flex items-center justify-center py-6 lg:col-span-4">
+            {/* Orbit Rings */}
+            <div
+              className="pointer-events-none absolute h-64 w-64 rounded-full border border-sky/20 sm:h-72 sm:w-72"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute h-52 w-52 rounded-full border border-primary/30 sm:h-56 sm:w-56"
+              aria-hidden="true"
+            />
+            <span
+              className="cyan-dot pointer-events-none absolute top-8 right-12 h-2.5 w-2.5 rounded-full"
+              aria-hidden="true"
+            />
+
+            <div className="glass-card relative z-10 flex w-full max-w-[270px] flex-col items-center rounded-3xl p-7 text-center">
+              <div className="glow-btn-primary mb-4 flex h-20 w-20 items-center justify-center rounded-2xl font-mono text-2xl font-extrabold">
+                JP
+              </div>
+              <p className="text-base font-bold text-foreground">
+                {profileData.name}
+              </p>
+              <p className="mt-1 font-mono text-xs text-sky">
+                D4 Teknik Informatika (RPL)
+              </p>
+              <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 font-mono text-xs font-bold text-sky">
+                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+                <span>IPK 3,90 / 4.00</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 3: Biography Paragraphs + View Projects Action */}
+          <div className="space-y-4 text-center lg:col-span-4 lg:text-left">
+            {profileData.about.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-sm leading-relaxed text-muted sm:text-base"
+              >
+                {t(paragraph, locale)}
+              </p>
+            ))}
+
+            <div className="pt-3">
+              <ButtonLink
+                href={`/${locale}#${messages.anchors.projects}`}
+                variant="outline"
+              >
+                <Code2 className="h-4 w-4 text-sky" aria-hidden="true" />
+                <span>{messages.hero.primaryCta}</span>
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
