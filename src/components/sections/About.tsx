@@ -5,6 +5,7 @@ import { profileData } from "@/content/profile";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
+import { MotionFadeIn, MotionStaggerContainer, MotionStaggerItem } from "@/components/ui/MotionSection";
 
 interface AboutProps {
   locale: Locale;
@@ -57,7 +58,7 @@ export function About({ locale, messages }: AboutProps) {
         />
 
         {/* 3-Column Stage inspired by alfari.my.id (Intro Left | Portrait Orbit Center | Bio Right) */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+        <MotionFadeIn className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
           {/* Column 1: Greeting + Big Name + Contact Action */}
           <div className="text-center lg:col-span-4 lg:text-left">
             <p className="text-gradient-alfari text-xl font-extrabold tracking-tight sm:text-2xl">
@@ -145,35 +146,34 @@ export function About({ locale, messages }: AboutProps) {
               </ButtonLink>
             </div>
           </div>
-        </div>
+        </MotionFadeIn>
 
         {/* 4-Card Experience & Impact Stats Grid (alfari.my.id .experience-stats) */}
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <MotionStaggerContainer className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div
-                key={stat.label}
-                className="glass-card flex items-center justify-between gap-4 rounded-2xl p-6 transition-transform duration-200 hover:-translate-y-1"
-              >
-                <div>
-                  <p className="text-gradient-alfari font-mono text-3xl font-extrabold tracking-tight sm:text-4xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1.5 text-sm font-bold text-foreground">
-                    {stat.label}
-                  </p>
-                  <p className="mt-0.5 font-mono text-xs text-muted">
-                    {stat.sub}
-                  </p>
+              <MotionStaggerItem key={stat.label}>
+                <div className="glass-card flex h-full items-center justify-between gap-4 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky/50 hover:shadow-lg">
+                  <div>
+                    <p className="text-gradient-alfari font-mono text-3xl font-extrabold tracking-tight sm:text-4xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1.5 text-sm font-bold text-foreground">
+                      {stat.label}
+                    </p>
+                    <p className="mt-0.5 font-mono text-xs text-muted">
+                      {stat.sub}
+                    </p>
+                  </div>
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/40 bg-primary/15 text-sky">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
                 </div>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/40 bg-primary/15 text-sky">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-              </div>
+              </MotionStaggerItem>
             );
           })}
-        </div>
+        </MotionStaggerContainer>
       </Container>
     </section>
   );

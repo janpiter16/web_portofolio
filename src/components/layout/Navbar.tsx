@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu, X, Globe, Download } from "lucide-react";
 import { Locale, Messages, getOppositeLocale } from "@/lib/i18n";
 import { profileData } from "@/content/profile";
@@ -88,7 +89,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
           </span>
         </div>
 
-        {/* Desktop Pill Links with Active Glow & Pulse Animation */}
+        {/* Desktop Pill Links with Framer Motion Sliding Active Pill */}
         <nav aria-label="Main Navigation" className="relative z-10 hidden md:flex md:items-center md:gap-1 shrink-0">
           {navItems.map((item) => {
             const isActive = activeHash === item.id;
@@ -99,19 +100,28 @@ export function Navbar({ locale, messages }: NavbarProps) {
                 onClick={() => {
                   setActiveHash(item.id);
                 }}
-                className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
-                    ? "nav-pill-active-pulse border border-sky/50 bg-primary/25 text-foreground shadow-sm"
-                    : "text-muted hover:-translate-y-0.5 hover:bg-white/5 hover:text-foreground"
+                    ? "text-foreground"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {isActive && (
-                  <span
-                    className="cyan-dot h-1.5 w-1.5 rounded-full"
-                    aria-hidden="true"
+                  <motion.span
+                    layoutId="activeNavPill"
+                    className="absolute inset-0 rounded-full border border-sky/50 bg-primary/25 shadow-sm"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span>{item.label}</span>
+                <span className="relative z-10 flex items-center gap-1.5">
+                  {isActive && (
+                    <span
+                      className="cyan-dot h-1.5 w-1.5 rounded-full"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span>{item.label}</span>
+                </span>
               </Link>
             );
           })}

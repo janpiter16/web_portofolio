@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Terminal } from "lucide-react";
 import { profileData } from "@/content/profile";
 import { TechIcon } from "@/components/ui/TechIcon";
@@ -38,11 +39,13 @@ export function BouncingLanyardCard() {
       </div>
 
       {/* Glossy Bouncing Lanyard ID Card */}
-      <div
+      <motion.div
         role="button"
         tabIndex={0}
         aria-label="Interactive Developer ID Card — click to bounce"
         onClick={triggerBounce}
+        whileHover={{ y: 8, rotate: 1.2, transition: { duration: 0.25 } }}
+        whileTap={{ scale: 0.98 }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -50,7 +53,7 @@ export function BouncingLanyardCard() {
           }
         }}
         onAnimationEnd={() => setBouncing(false)}
-        className={`glass-card lanyard-card-bounce group relative -mt-1 rounded-3xl p-5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+        className={`glass-card group relative -mt-1 rounded-3xl p-5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
           bouncing ? "lanyard-spring-active" : ""
         }`}
       >
@@ -126,7 +129,7 @@ export function BouncingLanyardCard() {
             AVAILABLE
           </span>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

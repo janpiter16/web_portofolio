@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { TypewriterRoles } from "@/components/ui/TypewriterRoles";
 import { BouncingLanyardCard } from "@/components/ui/BouncingLanyardCard";
+import { MotionFadeIn } from "@/components/ui/MotionSection";
 
 interface HeroProps {
   locale: Locale;
@@ -148,9 +149,9 @@ export function Hero({ locale, messages }: HeroProps) {
           </div>
 
           {/* Right Column: Interactive Bouncing Hanging Lanyard ID Card */}
-          <div className="lg:col-span-5">
+          <MotionFadeIn delay={0.2} className="lg:col-span-5">
             <BouncingLanyardCard />
-          </div>
+          </MotionFadeIn>
         </div>
       </Container>
     </section>

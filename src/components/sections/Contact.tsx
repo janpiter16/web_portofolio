@@ -9,6 +9,7 @@ import { isValidExternalUrl } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
+import { MotionFadeIn } from "@/components/ui/MotionSection";
 
 interface ContactProps {
   locale: Locale;
@@ -50,7 +51,7 @@ export function Contact({ locale, messages }: ContactProps) {
           subtitle={messages.contact.subtitle}
         />
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <MotionFadeIn className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Left Panel: Glass Message Panel (alfari.my.id .contact-message-panel) */}
           <div className="glass-card rounded-2xl p-6 sm:p-8 lg:col-span-7">
             <h3 className="text-2xl font-bold text-sky">
@@ -290,7 +291,7 @@ export function Contact({ locale, messages }: ContactProps) {
               </ButtonLink>
             </div>
           </div>
-        </div>
+        </MotionFadeIn>
       </Container>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Code2,
   Cpu,
@@ -114,29 +115,46 @@ export function PortfolioShowcaseTabs({
                 type="button"
                 aria-selected={isActive}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center justify-center gap-2.5 rounded-xl px-4 py-3.5 text-sm font-bold transition-all duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                className={`relative flex items-center justify-center gap-2.5 rounded-xl px-4 py-3.5 text-sm font-bold transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
-                    ? "glow-btn-primary"
-                    : "text-muted hover:bg-white/5 hover:text-foreground"
+                    ? "text-foreground"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
-                <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-                <span>{tab.label}</span>
-                <span
-                  className={`rounded-full px-2 py-0.5 font-mono text-xs ${
-                    isActive
-                      ? "bg-white/20 text-foreground"
-                      : "bg-white/5 text-muted"
-                  }`}
-                >
-                  {tab.count}
+                {isActive && (
+                  <motion.span
+                    layoutId="activePortfolioTab"
+                    className="glow-btn-primary absolute inset-0 rounded-xl"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span>{tab.label}</span>
+                  <span
+                    className={`rounded-full px-2 py-0.5 font-mono text-xs ${
+                      isActive
+                        ? "bg-white/20 text-foreground"
+                        : "bg-white/5 text-muted"
+                    }`}
+                  >
+                    {tab.count}
+                  </span>
                 </span>
               </button>
             );
           })}
         </div>
 
-        {/* Tab 1: Projects Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* Tab 1: Projects Grid */}
         {activeTab === "projects" && (
           <div>
             <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
@@ -329,6 +347,8 @@ export function PortfolioShowcaseTabs({
             ))}
           </div>
         )}
+          </motion.div>
+        </AnimatePresence>
       </Container>
     </section>
   );
