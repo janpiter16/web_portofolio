@@ -51,12 +51,8 @@ export const profileData: ProfileData = {
   },
   about: [
     {
-      id: "Saya adalah lulusan D4 (Sarjana Terapan) Teknik Informatika, Program Studi Rekayasa Perangkat Lunak di Politeknik Negeri Indramayu dengan IPK 3,90. Fokus utama saya adalah pengembangan backend, integrasi RESTful API, dan pengembangan aplikasi web fullstack menggunakan JavaScript, React, PHP (Laravel), serta Python (Flask) yang didukung oleh perancangan database relasional MySQL dan PostgreSQL.",
-      en: "I am an Applied Bachelor (D4) graduate in Informatics Engineering, Software Engineering study program at Politeknik Negeri Indramayu with a 3.90 GPA. My primary focus is backend development, RESTful API integration, and fullstack web development using JavaScript, React, PHP (Laravel), and Python (Flask), backed by relational database design in MySQL and PostgreSQL.",
-    },
-    {
-      id: "Saya memiliki pengalaman magang sebagai Frontend Developer di Bandung Techno Park serta pengalaman sebagai Fullstack Developer dalam mengintegrasikan aplikasi web Laravel dengan layanan prediksi Machine Learning berbasis Python Flask. Saya terbiasa berkolaborasi dalam tim maupun berdiskusi langsung dengan mitra pengguna, memiliki kemampuan pemecahan masalah yang terstruktur, dan antusias mempelajari teknologi modern termasuk layanan cloud seperti Google Cloud Platform.",
-      en: "I have hands-on internship experience as a Frontend Developer at Bandung Techno Park and Fullstack Developer experience integrating Laravel web applications with Python Flask machine learning prediction services. I am accustomed to collaborating in dynamic teams and engaging directly with project partners, backed by strong problem-solving skills and eagerness to learn cloud technologies such as Google Cloud Platform.",
+      id: "Lulusan D4 Teknik Informatika (Rekayasa Perangkat Lunak) Politeknik Negeri Indramayu dengan IPK 3,90 yang berfokus pada pengembangan Backend, RESTful API, dan aplikasi Web Fullstack menggunakan PHP (Laravel), Python (Flask), JavaScript (React), serta database MySQL dan PostgreSQL. Berpengalaman magang sebagai Frontend Developer di Bandung Techno Park dan mengintegrasikan sistem web dengan layanan prediksi Machine Learning.",
+      en: "Applied Bachelor (D4) graduate in Informatics Engineering (Software Engineering) from Politeknik Negeri Indramayu with a 3.90 GPA, specializing in Backend, RESTful API, and Fullstack Web development using PHP (Laravel), Python (Flask), JavaScript (React), and SQL databases (MySQL & PostgreSQL). Experienced as a Frontend Developer Intern at Bandung Techno Park and in integrating web applications with Machine Learning prediction services.",
     },
   ],
   email: "janpurba90@gmail.com",

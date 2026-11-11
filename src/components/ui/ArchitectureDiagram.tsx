@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, Cpu, Layers } from "lucide-react";
 import { Locale, t } from "@/lib/i18n";
 import { ArchitectureNode } from "@/content/projects";
+import { TechIcon } from "@/components/ui/TechIcon";
 
 interface ArchitectureDiagramProps {
   nodes: ArchitectureNode[];
@@ -81,8 +82,9 @@ export function ArchitectureDiagram({ nodes = [], locale }: ArchitectureDiagramP
                   </h3>
                 </div>
 
-                <p className="mt-3 font-mono text-[11px] font-semibold text-sky">
-                  {node.tech}
+                <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold text-sky">
+                  <TechIcon name={node.tech} className="h-3.5 w-3.5" />
+                  <span>{node.tech}</span>
                 </p>
               </button>
             </div>

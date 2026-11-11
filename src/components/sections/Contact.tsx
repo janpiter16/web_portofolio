@@ -143,39 +143,35 @@ export function Contact({ locale, messages }: ContactProps) {
             </form>
           </div>
 
-          {/* Right Panel: FIND ME Social Cards & CV Card (alfari.my.id .contact-find-me) */}
-          <div className="glass-card flex flex-col justify-between rounded-2xl p-6 sm:p-8 lg:col-span-5">
+          {/* Right Column: FIND ME Unboxed Social Links & CV CTA */}
+          <div className="flex flex-col justify-between py-2 lg:col-span-5 lg:pl-4">
             <div>
-              <h3 className="font-mono text-sm font-bold uppercase tracking-widest text-foreground">
+              <h3 className="font-mono text-sm font-bold uppercase tracking-widest text-sky">
                 FIND ME
               </h3>
               <p className="mt-1 text-sm text-muted">
                 {profileData.name} — {t(profileData.title, locale)}
               </p>
 
-              <div className="mt-6 space-y-4">
+              <div className="mt-6 divide-y divide-border-token">
                 <a
                   href={`mailto:${profileData.email}`}
-                  className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                  className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                 >
                   <div className="flex items-center gap-3.5 overflow-hidden">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
-                      <Mail className="h-5 w-5" aria-hidden="true" />
-                    </span>
+                    <Mail className="h-5 w-5 shrink-0 text-sky transition-transform group-hover:scale-110" aria-hidden="true" />
                     <div className="overflow-hidden">
-                      <p className="text-sm font-bold text-foreground">Email</p>
+                      <p className="text-sm font-bold text-foreground group-hover:text-sky transition-colors">Email</p>
                       <p className="truncate font-mono text-xs text-muted">
                         {profileData.email}
                       </p>
                     </div>
                   </div>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted group-hover:text-sky" aria-hidden="true" />
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky transition-transform" aria-hidden="true" />
                 </a>
 
-                <div className="flex items-center gap-3.5 rounded-xl border border-border-token bg-white/5 p-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
-                    <MapPin className="h-5 w-5" aria-hidden="true" />
-                  </span>
+                <div className="flex items-center gap-3.5 py-4">
+                  <MapPin className="h-5 w-5 shrink-0 text-sky" aria-hidden="true" />
                   <div>
                     <p className="text-sm font-bold text-foreground">
                       {messages.hero.locationLabel}
@@ -191,18 +187,16 @@ export function Contact({ locale, messages }: ContactProps) {
                     href={profileData.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
                     <div className="flex items-center gap-3.5">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
-                        <GithubIcon className="h-5 w-5" />
-                      </span>
+                      <GithubIcon className="h-5 w-5 shrink-0 text-sky transition-transform group-hover:scale-110" />
                       <div>
-                        <p className="text-sm font-bold text-foreground">GitHub</p>
+                        <p className="text-sm font-bold text-foreground group-hover:text-sky transition-colors">GitHub</p>
                         <p className="font-mono text-xs text-muted">@janpiter16</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky transition-transform" aria-hidden="true" />
                   </a>
                 )}
 
@@ -211,18 +205,16 @@ export function Contact({ locale, messages }: ContactProps) {
                     href={profileData.linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
                     <div className="flex items-center gap-3.5">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
-                        <LinkedinIcon className="h-5 w-5" />
-                      </span>
+                      <LinkedinIcon className="h-5 w-5 shrink-0 text-sky transition-transform group-hover:scale-110" />
                       <div>
-                        <p className="text-sm font-bold text-foreground">LinkedIn</p>
+                        <p className="text-sm font-bold text-foreground group-hover:text-sky transition-colors">LinkedIn</p>
                         <p className="font-mono text-xs text-muted">in/janpiter-purba-22075b444</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky transition-transform" aria-hidden="true" />
                   </a>
                 )}
 
@@ -231,24 +223,22 @@ export function Contact({ locale, messages }: ContactProps) {
                     href={profileData.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-border-token bg-white/5 p-4 transition-all hover:-translate-y-0.5 hover:border-sky hover:bg-primary/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
                   >
                     <div className="flex items-center gap-3.5">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border-token bg-white/5 text-sky">
-                        <InstagramIcon className="h-5 w-5" />
-                      </span>
+                      <InstagramIcon className="h-5 w-5 shrink-0 text-sky transition-transform group-hover:scale-110" />
                       <div>
-                        <p className="text-sm font-bold text-foreground">Instagram</p>
+                        <p className="text-sm font-bold text-foreground group-hover:text-sky transition-colors">Instagram</p>
                         <p className="font-mono text-xs text-muted">@janpiterprb_16</p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:text-sky" aria-hidden="true" />
+                    <ArrowUpRight className="h-4 w-4 text-muted group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky transition-transform" aria-hidden="true" />
                   </a>
                 )}
               </div>
             </div>
 
-            <div className="mt-8 border-t border-border-token pt-6">
+            <div className="mt-8 pt-4">
               <ButtonLink
                 href={profileData.cvPath[locale]}
                 variant="primary"
