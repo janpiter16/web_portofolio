@@ -1,5 +1,12 @@
 import { LocalizedString } from "@/lib/i18n";
 
+export interface ArchitectureNode {
+  step: string;
+  layer: LocalizedString;
+  tech: string;
+  detail: LocalizedString;
+}
+
 export interface ProjectItem {
   slug: string;
   featured: boolean;
@@ -12,6 +19,7 @@ export interface ProjectItem {
   contribution: LocalizedString;
   approach: LocalizedString;
   technologies: string[];
+  architecture: ArchitectureNode[];
   features: LocalizedString[];
   challenge: LocalizedString;
   solution: LocalizedString;
@@ -66,6 +74,56 @@ export const projects: ProjectItem[] = [
       "RESTful API",
       "Machine Learning",
       "MySQL",
+    ],
+    architecture: [
+      {
+        step: "01",
+        layer: {
+          id: "Antarmuka & Aplikasi Web Utama",
+          en: "Web UI & Main Application",
+        },
+        tech: "PHP • Laravel",
+        detail: {
+          id: "Menangani autentikasi pengguna, input parameter budidaya ikan, dan visualisasi hasil prediksi serta kelayakan usaha.",
+          en: "Handles user authentication, fish farming parameter inputs, and visualization of prediction and business feasibility results.",
+        },
+      },
+      {
+        step: "02",
+        layer: {
+          id: "Komunikasi Layanan Terintegrasi",
+          en: "Integrated Service Communication",
+        },
+        tech: "RESTful API (HTTP / JSON)",
+        detail: {
+          id: "Mengirimkan payload parameter panen dari backend Laravel ke endpoint microservice Python Flask dan menerima respons prediksi secara real-time.",
+          en: "Transmits harvest parameter payloads from the Laravel backend to the Python Flask microservice endpoint and receives real-time prediction responses.",
+        },
+      },
+      {
+        step: "03",
+        layer: {
+          id: "Komputasi Prediksi Machine Learning",
+          en: "Machine Learning Prediction Engine",
+        },
+        tech: "Python • Flask • Linear Regression",
+        detail: {
+          id: "Mengeksekusi model Regresi Linear untuk menghitung estimasi harga panen ikan air tawar dan klasifikasi kelayakan (Untung, Impas, Rugi).",
+          en: "Executes the Linear Regression model to compute estimated freshwater fish harvest prices and feasibility classification (Profit, Break-even, Loss).",
+        },
+      },
+      {
+        step: "04",
+        layer: {
+          id: "Penyimpanan Relasional & Historis",
+          en: "Relational & Historical Storage",
+        },
+        tech: "SQL • MySQL Database",
+        detail: {
+          id: "Menyimpan data historis harga panen, riwayat parameter input, serta hasil prediksi untuk evaluasi periode berikutnya.",
+          en: "Stores historical harvest pricing records, input parameter logs, and prediction outputs for future cycle evaluation.",
+        },
+      },
     ],
     features: [
       {
@@ -147,6 +205,56 @@ export const projects: ProjectItem[] = [
       "UML",
       "Draw.io",
     ],
+    architecture: [
+      {
+        step: "01",
+        layer: {
+          id: "Pemodelan Kebutuhan & UML",
+          en: "Requirement & UML Modeling",
+        },
+        tech: "Flowchart • Use Case • Sequence",
+        detail: {
+          id: "Memetakan alur operasional Sekolah Alam Indramayu bersama mitra ke dalam diagram sistem yang tervalidasi sebelum penulisan kode.",
+          en: "Mapped Sekolah Alam Indramayu operational workflows with stakeholders into validated system diagrams prior to coding.",
+        },
+      },
+      {
+        step: "02",
+        layer: {
+          id: "Portal Web Admin & Wali Murid",
+          en: "Admin & Parent Web Portal",
+        },
+        tech: "PHP • Laravel • JavaScript",
+        detail: {
+          id: "Menyediakan dashboard manajemen data siswa, pembuatan tagihan SPP bulanan, dan verifikasi pembayaran.",
+          en: "Provides dashboards for student record management, monthly tuition bill generation, and payment verification.",
+        },
+      },
+      {
+        step: "03",
+        layer: {
+          id: "Aplikasi Mobile Lintas Platform",
+          en: "Cross-Platform Mobile App",
+        },
+        tech: "Flutter SDK",
+        detail: {
+          id: "Memudahkan wali murid memantau status tagihan aktif dan riwayat pembayaran SPP langsung dari perangkat mobile.",
+          en: "Enables parents to check active tuition bills and payment histories directly from mobile devices.",
+        },
+      },
+      {
+        step: "04",
+        layer: {
+          id: "Basis Data Terpusat",
+          en: "Centralized Relational Database",
+        },
+        tech: "MySQL Database",
+        detail: {
+          id: "Menjaga konsistensi data siswa, rincian tagihan, dan bukti transaksi pembayaran antara platform Web dan Mobile.",
+          en: "Maintains data consistency for student profiles, billing records, and payment transactions across Web and Mobile platforms.",
+        },
+      },
+    ],
     features: [
       {
         id: "Pemodelan sistem lengkap mencakup flowchart, use case diagram, dan sequence diagram berdasarkan diskusi mitra",
@@ -215,6 +323,56 @@ export const projects: ProjectItem[] = [
       en: "Started development from UML workflow diagrams and visual mockups in Figma/Canva before implementing the alumni pages and data entry forms.",
     },
     technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "PHP", "MySQL", "Figma", "UML"],
+    architecture: [
+      {
+        step: "01",
+        layer: {
+          id: "Perancangan Alur & UML",
+          en: "System Workflow & UML Design",
+        },
+        tech: "UML • Flowchart • Use Case",
+        detail: {
+          id: "Merumuskan kebutuhan pendataan lulusan SMK N 1 Indramayu ke dalam flowchart dan use case diagram.",
+          en: "Formulated SMK N 1 Indramayu graduate tracking requirements into flowcharts and use case diagrams.",
+        },
+      },
+      {
+        step: "02",
+        layer: {
+          id: "Desain Mockup Antarmuka",
+          en: "UI Mockup Prototyping",
+        },
+        tech: "Figma • Canva",
+        detail: {
+          id: "Merancang tata letak visual direktori alumni dan form input data agar intuitif bagi pihak sekolah dan alumni.",
+          en: "Designed visual layouts for the alumni directory and data entry forms for intuitive use by school staff and alumni.",
+        },
+      },
+      {
+        step: "03",
+        layer: {
+          id: "Antarmuka Web & Modul Alumni",
+          en: "Web Frontend & Alumni Module",
+        },
+        tech: "HTML5 • CSS3 • Bootstrap • JS",
+        detail: {
+          id: "Mengimplementasikan halaman responsif dan form validasi tambah data alumni sesuai desain mockup.",
+          en: "Implemented responsive pages and validated add-alumni forms matching the approved UI mockups.",
+        },
+      },
+      {
+        step: "04",
+        layer: {
+          id: "Pemrosesan Backend & Penyimpanan",
+          en: "Backend Processing & Storage",
+        },
+        tech: "PHP • MySQL",
+        detail: {
+          id: "Memproses penyimpanan data profil, angkatan, dan status karier alumni ke dalam tabel relasional MySQL.",
+          en: "Processes and persists alumni profiles, graduation cohorts, and career statuses in MySQL relational tables.",
+        },
+      },
+    ],
     features: [
       {
         id: "Dokumentasi perancangan flowchart, use case diagram, dan alur sistem aplikasi",

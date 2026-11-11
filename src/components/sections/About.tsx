@@ -14,8 +14,8 @@ interface AboutProps {
 export function About({ locale, messages }: AboutProps) {
   const stats = [
     {
-      value: "3.90",
-      label: locale === "id" ? "IPK Sarjana Terapan (D4)" : "Applied Bachelor GPA",
+      value: "3.90 / 4.00",
+      label: locale === "id" ? "IPK Sarjana Terapan (D4 RPL)" : "Applied Bachelor GPA (D4 RPL)",
       sub: "Politeknik Negeri Indramayu",
       icon: Award,
     },
@@ -26,16 +26,16 @@ export function About({ locale, messages }: AboutProps) {
       icon: Layers,
     },
     {
-      value: "10+",
-      label: locale === "id" ? "Teknologi & Database" : "Technologies & Databases",
-      sub: "Laravel, Flask, React, SQL",
-      icon: Cpu,
+      value: "1",
+      label: locale === "id" ? "Pengalaman Industri" : "Industry Internship",
+      sub: "Bandung Techno Park (2025)",
+      icon: Briefcase,
     },
     {
-      value: "2025",
-      label: locale === "id" ? "Pengalaman Industri" : "Industry Internship",
-      sub: "Bandung Techno Park",
-      icon: Briefcase,
+      value: "12+",
+      label: locale === "id" ? "Teknologi Backend, UI & DB" : "Backend, UI & DB Technologies",
+      sub: "Laravel, Flask, React, SQL, Flutter",
+      icon: Cpu,
     },
   ];
 

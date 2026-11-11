@@ -21,6 +21,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/Button";
 import { ProjectCard } from "@/components/sections/ProjectsSection";
+import { TechStackGrid } from "@/components/ui/TechStackGrid";
 
 interface PortfolioShowcaseTabsProps {
   locale: Locale;
@@ -152,60 +153,64 @@ export function PortfolioShowcaseTabs({
           </div>
         )}
 
-        {/* Tab 2: Tech Stack & Skills Grid */}
+        {/* Tab 2: Tech Stack & Skills Grid (Point 3: Colored Logo Grid + Evidence Cards) */}
         {activeTab === "skills" && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {skillCategories.map((category) => (
-              <div
-                key={category.id}
-                className="glass-card rounded-2xl p-6 transition-all duration-200"
-              >
-                <div className="flex items-center justify-between border-b border-border-token pb-4">
-                  <h3 className="text-lg font-bold text-foreground">
-                    {t(category.title, locale)}
-                  </h3>
-                  <span className="rounded-full border border-primary/40 bg-primary/15 px-2.5 py-0.5 font-mono text-xs font-bold text-sky">
-                    {category.skills.length}
-                  </span>
-                </div>
+          <div>
+            <TechStackGrid locale={locale} />
 
-                <ul className="mt-5 space-y-3.5">
-                  {category.skills.map((skill) => {
-                    const monogram = skill.name
-                      .replace(/[^A-Za-z0-9]/g, "")
-                      .slice(0, 2)
-                      .toUpperCase();
-                    return (
-                      <li
-                        key={skill.name}
-                        className="group flex items-start gap-3.5 rounded-xl border border-border-token bg-white/5 p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-sky hover:bg-primary/10"
-                      >
-                        <span
-                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-primary/40 bg-primary/15 font-mono text-xs font-extrabold text-sky transition-colors group-hover:bg-primary group-hover:text-foreground"
-                          aria-hidden="true"
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {skillCategories.map((category) => (
+                <div
+                  key={category.id}
+                  className="glass-card rounded-2xl p-6 transition-all duration-200"
+                >
+                  <div className="flex items-center justify-between border-b border-border-token pb-4">
+                    <h3 className="text-lg font-bold text-foreground">
+                      {t(category.title, locale)}
+                    </h3>
+                    <span className="rounded-full border border-primary/40 bg-primary/15 px-2.5 py-0.5 font-mono text-xs font-bold text-sky">
+                      {category.skills.length}
+                    </span>
+                  </div>
+
+                  <ul className="mt-5 space-y-3.5">
+                    {category.skills.map((skill) => {
+                      const monogram = skill.name
+                        .replace(/[^A-Za-z0-9]/g, "")
+                        .slice(0, 2)
+                        .toUpperCase();
+                      return (
+                        <li
+                          key={skill.name}
+                          className="group flex items-start gap-3.5 rounded-xl border border-border-token bg-white/5 p-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-sky hover:bg-primary/10"
                         >
-                          {monogram}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-2">
-                            <p className="text-sm font-bold text-foreground">
-                              {skill.name}
+                          <span
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-primary/40 bg-primary/15 font-mono text-xs font-extrabold text-sky transition-colors group-hover:bg-primary group-hover:text-foreground"
+                            aria-hidden="true"
+                          >
+                            {monogram}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <p className="text-sm font-bold text-foreground">
+                                {skill.name}
+                              </p>
+                              <CheckCircle2
+                                className="h-3.5 w-3.5 shrink-0 text-sky"
+                                aria-hidden="true"
+                              />
+                            </div>
+                            <p className="mt-1 text-xs leading-relaxed text-muted">
+                              {t(skill.evidence, locale)}
                             </p>
-                            <CheckCircle2
-                              className="h-3.5 w-3.5 shrink-0 text-sky"
-                              aria-hidden="true"
-                            />
                           </div>
-                          <p className="mt-1 text-xs leading-relaxed text-muted">
-                            {t(skill.evidence, locale)}
-                          </p>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

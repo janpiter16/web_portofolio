@@ -10,6 +10,7 @@ import { isValidExternalUrl } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/Button";
+import { ArchitectureDiagram } from "@/components/ui/ArchitectureDiagram";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -146,6 +147,9 @@ export default async function ProjectDetailPage({
             </div>
           </div>
         </div>
+
+        {/* Interactive System Architecture Pipeline (Point 2) */}
+        <ArchitectureDiagram nodes={project.architecture} locale={locale} />
 
         {/* Detailed Case Study Cards */}
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
