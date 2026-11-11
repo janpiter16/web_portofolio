@@ -68,49 +68,71 @@ export function Navbar({ locale, messages }: NavbarProps) {
 
   return (
     <header className="fixed top-3 right-0 left-0 z-50 flex justify-center px-3 sm:px-5">
-      <div className="glass-pill flex w-full max-w-fit items-center justify-between gap-2 rounded-full px-3 py-2 sm:gap-3 sm:px-4">
+      <div
+        key={pathname}
+        className="glass-pill navbar-pill-enter relative flex w-full max-w-fit items-center justify-between gap-2 overflow-hidden rounded-full px-3 py-2 sm:gap-3 sm:px-4"
+      >
+        {/* Shimmer Light Beam Sweep on Load */}
+        <span
+          className="navbar-shimmer-beam pointer-events-none absolute inset-y-0 left-0 w-24"
+          aria-hidden="true"
+        />
+
         {/* Brand Icon + Name */}
         <Link
           href={`/${locale}`}
           onClick={() => setActiveHash("home")}
-          className="flex items-center gap-2.5 pr-2 font-bold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky rounded-full"
+          style={{ animationDelay: "80ms" }}
+          className="nav-item-cascade group relative z-10 flex items-center gap-2.5 pr-2 font-bold tracking-tight text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky rounded-full"
         >
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-xl border border-primary/50 bg-primary/20 text-sky">
+          <span className="relative flex h-8 w-8 items-center justify-center rounded-xl border border-primary/50 bg-primary/20 text-sky transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
             <Code2 className="h-4 w-4" aria-hidden="true" />
-            <span className="cyan-dot absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full" aria-hidden="true" />
+            <span className="cyan-dot absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full animate-pulse" aria-hidden="true" />
           </span>
-          <span className="text-sm font-bold sm:inline">JanpiterDev.</span>
+          <span className="text-sm font-bold transition-colors group-hover:text-sky sm:inline">
+            JanpiterDev.
+          </span>
         </Link>
 
-        {/* Desktop Pill Links */}
-        <nav aria-label="Main Navigation" className="hidden md:flex md:items-center md:gap-1">
-          {navItems.map((item) => {
+        {/* Desktop Pill Links with Staggered Entrance & Active Glow */}
+        <nav aria-label="Main Navigation" className="relative z-10 hidden md:flex md:items-center md:gap-1">
+          {navItems.map((item, idx) => {
             const isActive = activeHash === item.id;
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setActiveHash(item.id)}
-                className={`relative rounded-full px-4 py-2 text-sm font-bold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
+                style={{ animationDelay: `${140 + idx * 65}ms` }}
+                className={`nav-item-cascade relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky ${
                   isActive
-                    ? "border border-white/20 bg-white/10 text-foreground shadow-sm"
-                    : "text-muted hover:bg-white/5 hover:text-foreground"
+                    ? "border border-sky/50 bg-primary/25 text-foreground shadow-sm"
+                    : "text-muted hover:-translate-y-0.5 hover:bg-white/5 hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {isActive && (
+                  <span
+                    className="cyan-dot h-1.5 w-1.5 rounded-full"
+                    aria-hidden="true"
+                  />
+                )}
+                <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden h-5 w-px bg-border-token md:block" aria-hidden="true" />
+        <div className="relative z-10 hidden h-5 w-px bg-border-token md:block" aria-hidden="true" />
 
         {/* Right Actions: Language Switcher & CV CTA */}
-        <div className="flex items-center gap-2">
+        <div
+          style={{ animationDelay: "420ms" }}
+          className="nav-item-cascade relative z-10 flex items-center gap-2"
+        >
           <Link
             href={switchedPath}
             aria-label={messages.nav.switchLanguage}
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border-token bg-white/5 px-3 font-mono text-xs font-bold uppercase text-foreground hover:border-sky hover:bg-white/10 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border-token bg-white/5 px-3 font-mono text-xs font-bold uppercase text-foreground hover:-translate-y-0.5 hover:border-sky hover:bg-white/10 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
           >
             <Globe className="h-3.5 w-3.5 text-sky" aria-hidden="true" />
             <span>{targetLocale.toUpperCase()}</span>
@@ -119,7 +141,7 @@ export function Navbar({ locale, messages }: NavbarProps) {
           <a
             href={profileData.cvPath[locale]}
             download
-            className="glow-btn-primary hidden items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200 sm:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+            className="glow-btn-primary hidden items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold hover:-translate-y-0.5 transition-all duration-200 sm:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             <span>{messages.nav.downloadCv}</span>

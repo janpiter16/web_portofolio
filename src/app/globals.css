@@ -146,76 +146,50 @@ body {
   );
 }
 
-/* Cosmic Starfield, Meteors & Space Objects Animations */
-@keyframes cosmicTwinkleSlow {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.03);
-  }
-}
-
-@keyframes cosmicTwinkleFast {
-  0%, 100% {
-    opacity: 0.85;
-  }
-  50% {
-    opacity: 0.25;
-  }
-}
-
+/* Cosmic Space Objects, Lanyard Bounce & Navbar Entrance Animations */
 @keyframes cosmicPlanetFloat {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translate3d(0px, 0px, 0) rotate(0deg);
   }
-  50% {
-    transform: translateY(-18px) rotate(4deg);
+  33% {
+    transform: translate3d(-18px, -22px, 0) rotate(5deg);
+  }
+  66% {
+    transform: translate3d(12px, -10px, 0) rotate(-4deg);
   }
 }
 
 @keyframes cosmicPlanetReverse {
   0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translate3d(0px, 0px, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(16px) rotate(-6deg);
+    transform: translate3d(22px, -20px, 0) rotate(-8deg);
   }
 }
 
-@keyframes cosmicMeteor {
+@keyframes cosmicOrbitSpin {
   0% {
-    opacity: 0;
-    transform: rotate(-35deg) translateX(0px);
-  }
-  10% {
-    opacity: 0.9;
-  }
-  30% {
-    opacity: 0;
-    transform: rotate(-35deg) translateX(-420px);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 0;
-    transform: rotate(-35deg) translateX(-420px);
+    transform: rotate(360deg);
   }
 }
 
 /* Lanyard Elastic Bounce & Pendulum Animations */
 @keyframes lanyardPendulum {
   0%, 100% {
-    transform: translateY(0px) rotate(-1.2deg);
+    transform: translateY(0px) rotate(-1.6deg);
   }
   25% {
-    transform: translateY(10px) rotate(0.8deg);
+    transform: translateY(14px) rotate(1.2deg);
   }
   50% {
-    transform: translateY(-6px) rotate(1.4deg);
+    transform: translateY(-8px) rotate(1.8deg);
   }
   75% {
-    transform: translateY(8px) rotate(-0.6deg);
+    transform: translateY(11px) rotate(-1deg);
   }
 }
 
@@ -224,55 +198,111 @@ body {
     transform: translateY(0px) scale(1);
   }
   20% {
-    transform: translateY(28px) scale(0.97, 1.03) rotate(2deg);
+    transform: translateY(32px) scale(0.96, 1.04) rotate(2.5deg);
   }
   45% {
-    transform: translateY(-18px) scale(1.02, 0.98) rotate(-2deg);
+    transform: translateY(-20px) scale(1.03, 0.97) rotate(-2.2deg);
   }
   65% {
-    transform: translateY(10px) scale(0.99, 1.01) rotate(1deg);
+    transform: translateY(12px) scale(0.99, 1.01) rotate(1.2deg);
   }
   82% {
-    transform: translateY(-5px) rotate(-0.5deg);
+    transform: translateY(-6px) rotate(-0.6deg);
   }
   100% {
     transform: translateY(0px) scale(1) rotate(0deg);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .cosmic-stars-slow {
-    animation: cosmicTwinkleSlow 6s ease-in-out infinite;
+/* Navbar Entrance & Shimmer Sweep Animations */
+@keyframes navbarPillEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-32px) scale(0.9);
+    filter: blur(8px);
   }
-  .cosmic-stars-fast {
-    animation: cosmicTwinkleFast 4.2s ease-in-out infinite;
+  65% {
+    opacity: 1;
+    transform: translateY(4px) scale(1.015);
+    filter: blur(0px);
   }
-  .cosmic-planet-float {
-    animation: cosmicPlanetFloat 11s ease-in-out infinite;
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    filter: blur(0px);
   }
-  .cosmic-planet-reverse {
-    animation: cosmicPlanetReverse 13s ease-in-out infinite;
+}
+
+@keyframes navItemCascade {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.94);
   }
-  .cosmic-meteor-one {
-    animation: cosmicMeteor 9s ease-in-out infinite;
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
   }
-  .cosmic-meteor-two {
-    animation: cosmicMeteor 12s ease-in-out 3.5s infinite;
+}
+
+@keyframes navbarShimmerSweep {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
   }
-  .cosmic-meteor-three {
-    animation: cosmicMeteor 14s ease-in-out 7s infinite;
+  45%, 100% {
+    transform: translateX(240%) skewX(-20deg);
   }
-  .lanyard-pendulum {
-    transform-origin: top center;
-    animation: lanyardPendulum 4.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  }
-  .lanyard-card-bounce {
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .lanyard-card-bounce:hover {
-    transform: translateY(10px) rotate(1.2deg);
-  }
-  .lanyard-spring-active {
-    animation: lanyardSpringPop 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  }
+}
+
+.cosmic-planet-float {
+  animation: cosmicPlanetFloat 9s ease-in-out infinite;
+}
+
+.cosmic-planet-reverse {
+  animation: cosmicPlanetReverse 11s ease-in-out infinite;
+}
+
+.cosmic-orbit-spin {
+  transform-origin: 100px 100px;
+  animation: cosmicOrbitSpin 16s linear infinite;
+}
+
+.cosmic-orbit-spin-reverse {
+  transform-origin: 90px 90px;
+  animation: cosmicOrbitSpin 14s linear infinite reverse;
+}
+
+.lanyard-pendulum {
+  transform-origin: top center;
+  animation: lanyardPendulum 3.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.lanyard-card-bounce {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lanyard-card-bounce:hover {
+  transform: translateY(12px) rotate(1.5deg);
+}
+
+.lanyard-spring-active {
+  animation: lanyardSpringPop 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-pill-enter {
+  animation: navbarPillEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.navbar-shimmer-beam {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.22),
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  animation: navbarShimmerSweep 5.5s ease-in-out 0.35s infinite;
+}
+
+.nav-item-cascade {
+  animation: navItemCascade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
