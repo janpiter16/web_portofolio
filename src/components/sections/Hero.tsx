@@ -21,7 +21,7 @@ export function Hero({ locale, messages }: HeroProps) {
     >
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="hero-stagger lg:col-span-7">
             {/* Status Pill with Pulsing Cyan Dot (alfari.my.id style) */}
             <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-primary/50 bg-primary/15 px-4 py-1.5 backdrop-blur-md">
               <span className="cyan-dot h-2 w-2 rounded-full animate-pulse" aria-hidden="true" />

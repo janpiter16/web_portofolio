@@ -16,27 +16,40 @@ export function SectionReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("main section[id]")
-    );
-    if (sections.length === 0) return;
-
-    sections.forEach((el) => el.classList.add("section-reveal"));
-
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.12 }
     );
 
-    sections.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    // Sections stream in after hydration, so scan again whenever the DOM changes.
+    const scan = () => {
+      document
+        .querySelectorAll<HTMLElement>("main section[id]:not([data-reveal])")
+        .forEach((el) => {
+          el.dataset.reveal = "1";
+          // Sections already on screen are covered by the page entrance animation.
+          if (el.getBoundingClientRect().top > window.innerHeight * 0.85) {
+            el.classList.add("section-reveal");
+            io.observe(el);
+          }
+        });
+    };
+
+    scan();
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mo.disconnect();
+      io.disconnect();
+    };
   }, [pathname]);
 
   return null;
