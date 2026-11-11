@@ -3,6 +3,7 @@ import { LocalizedString, Locale } from "@/lib/i18n";
 export interface ProfileData {
   name: string;
   title: LocalizedString;
+  roles: Record<Locale, string[]>;
   location: LocalizedString;
   availability: LocalizedString;
   summary: LocalizedString;
@@ -18,6 +19,20 @@ export const profileData: ProfileData = {
   title: {
     id: "Software Developer | Backend & Fullstack",
     en: "Software Developer | Backend & Fullstack",
+  },
+  roles: {
+    id: [
+      "Backend & Fullstack Developer",
+      "Laravel & Python Flask Developer",
+      "RESTful API & SQL Database Engineer",
+      "React & Web Application Developer",
+    ],
+    en: [
+      "Backend & Fullstack Developer",
+      "Laravel & Python Flask Developer",
+      "RESTful API & SQL Database Engineer",
+      "React & Web Application Developer",
+    ],
   },
   location: {
     id: "Serang, Banten, Indonesia",
