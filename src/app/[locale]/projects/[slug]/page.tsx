@@ -12,6 +12,8 @@ import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/Button";
 import { ArchitectureDiagram } from "@/components/ui/ArchitectureDiagram";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     projects.map((project) => ({

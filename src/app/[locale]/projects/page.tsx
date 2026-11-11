@@ -8,6 +8,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectCard } from "@/components/sections/ProjectsSection";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

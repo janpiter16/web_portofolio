@@ -1,9 +1,15 @@
 import { notFound } from "next/navigation";
-import { isValidLocale, getMessages } from "@/lib/i18n";
+import { isValidLocale, getMessages, locales } from "@/lib/i18n";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { PortfolioShowcaseTabs } from "@/components/sections/PortfolioShowcaseTabs";
 import { Contact } from "@/components/sections/Contact";
+
+export const instant = false;
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleHomePage({
   params,

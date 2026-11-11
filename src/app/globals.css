@@ -307,24 +307,6 @@ body {
   animation: navItemCascade 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Section entrance when scrolled into view or opened from a navbar menu */
-@keyframes sectionEnter {
-  0% {
-    opacity: 0.4;
-    transform: translateY(28px);
-    filter: blur(6px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-.section-reveal-anim {
-  animation: sectionEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 /* Page entrance on reload & route change (smooth fade & slide up) */
 @keyframes pageEnter {
   0% {

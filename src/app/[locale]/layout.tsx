@@ -6,7 +6,8 @@ import { profileData } from "@/content/profile";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CosmicBackground } from "@/components/ui/CosmicBackground";
-import { SectionReveal } from "@/components/ui/SectionReveal";
+
+export const instant = false;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -72,7 +73,6 @@ export default async function LocaleLayout({
   return (
     <div lang={validLocale} className="relative flex min-h-screen flex-col">
       <CosmicBackground />
-      <SectionReveal />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-navy"
